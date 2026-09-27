@@ -39,21 +39,6 @@ The standard answer is a two-tier funnel: cheap rules or small ML models sift ev
 
 This is exactly the shape of a System One job: react fast, cost almost nothing, and be well-calibrated about uncertainty. If Jev is real, it slots into that funnel as a dramatically better cheap tier. Feed it 10,000 logs, get anomaly scores back in milliseconds. (One limitation today: it doesn't take numeric states directly. But there are workarounds — you can build textual descriptors of a time series and score those. The paradigm matters more than the current input format.)
 
-## I ran it myself
-
-Disclosure: I got early access to Jev and tested it on my own problem — log anomaly detection on the BGL supercomputer log dataset. 1,500 sequences of 20 log lines each, chronological split. Zero-shot first, then few-shot with just 6 labeled examples (3 anomalous, 3 normal).
-
-| | zero-shot | 6-example few-shot |
-|---|---|---|
-| F1 @ threshold 0.9 | 0.587 | 0.722 |
-| best F1 | 0.696 | 0.837 |
-| ROC-AUC | 0.970 | 0.991 |
-| precision @ 0.9 | 0.422 | 0.833 |
-
-Six examples nearly doubled precision at a fixed threshold — mostly by teaching it that alarming words like FATAL can be routine. The few-shot F1 of 0.837 lands near DeepLog's published 0.86 on the same discipline. Total cost of the experiment: about twenty cents.
-
-Honest caveats, because they matter: thresholds were picked post-hoc on the evaluated sample (optimistic), I sampled 1,500 of 47,479 test windows, I tried exactly one set of examples, and the comparison protocols to published baselines aren't identical. This is a signal, not a benchmark. But it's *my* signal, on *my* problem — and the direction is unambiguous: six examples, twenty cents, near-published-baseline quality.
-
 ## "It's just a rebranded classifier"
 
 Now the skeptical voice, steelmanned: there's nothing technically new here. Before the GPT era, BERT-based models did classification, annotation, and prediction just fine. Calling it "System One" is marketing draped over old technology. No paradigm shift.
