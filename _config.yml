@@ -52,12 +52,8 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/lianggou"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope"
-      url: "mailto:lgou.psu@gmail.com"
-    - label: "Feed"
-      icon: "fas fa-fw fa-rss-square"
-      url: "https://lianggou.github.io/feed.xml"
+    # Email and Feed are rendered via _includes/author-profile-custom-links.html
+    # so the email address never appears in the page source (spam protection).
 
 # Defaults
 defaults:
