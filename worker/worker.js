@@ -26,9 +26,13 @@ async function getRow(db, slug) {
 
 async function bump(db, slug, col) {
   // col is one of the two hardcoded column names below — never user input.
+  // Seed the new row with 1 in the bumped column so the very first
+  // hit/like on a new slug counts as one, not zero.
+  const viewsVal = col === 'views' ? 1 : 0;
+  const likesVal = col === 'likes' ? 1 : 0;
   await db
     .prepare(
-      `INSERT INTO stats (slug, views, likes) VALUES (?, 0, 0)
+      `INSERT INTO stats (slug, views, likes) VALUES (?, ${viewsVal}, ${likesVal})
        ON CONFLICT(slug) DO UPDATE SET ${col} = ${col} + 1`
     )
     .bind(slug)
