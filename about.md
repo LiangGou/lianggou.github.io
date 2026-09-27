@@ -16,7 +16,7 @@ author_profile: true
 
 **Disclaimer.** All views here are my own, not those of Cisco or any past or present employer — nothing here is an official statement on their behalf. I never disclose non-public employer information; I share general insights, never specifics.
 
-This blog website was built by Muse.
+This blog website was built by Meta Muse.
 
 ## Elsewhere
 
