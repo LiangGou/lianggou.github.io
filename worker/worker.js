@@ -29,7 +29,13 @@ const CORS = {
 };
 
 const SITE = 'https://lianggou.github.io';
-const AI_MODEL = '@cf/meta/llama-3.1-8b-instruct';
+// Primary + fallback chat models for the gate. If Cloudflare deprecates one
+// (as happened to llama-3.1-8b-instruct in May 2026), the next is tried before
+// failing open — the layer degrades gracefully instead of dying silently.
+const AI_MODELS = [
+  '@cf/meta/llama-4-scout-17b-16e-instruct',
+  '@cf/google/gemma-3-12b-it',
+];
 
 // Layer 2 of the contact defenses: an LLM judge for spam/slop/prompt-injection.
 // NOTE (honest limits): this is a *quality* filter, not a human-vs-agent
@@ -96,23 +102,31 @@ async function stashInbox(db, { name, email, message, status, agent_declared }) 
 }
 
 async function classifyWithAI(ai, { name, email, message }) {
-  const out = await ai.run(AI_MODEL, {
-    messages: [
-      { role: 'system', content: GATE_SYSTEM_PROMPT },
-      { role: 'user', content: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}` },
-    ],
-    temperature: 0,
-    max_tokens: 200,
-  });
-  const text = out && out.response ? String(out.response) : '';
-  const m = text.match(/\{[\s\S]*\}/);
-  if (!m) throw new Error('unparseable AI response');
-  const v = JSON.parse(m[0]);
-  return {
-    verdict: v.verdict === 'SPAM' ? 'SPAM' : 'LEGIT',
-    reason: String(v.reason || 'n/a').slice(0, 200),
-    agent_declared: !!v.agent_declared,
-  };
+  let lastErr = null;
+  for (const model of AI_MODELS) {
+    try {
+      const out = await ai.run(model, {
+        messages: [
+          { role: 'system', content: GATE_SYSTEM_PROMPT },
+          { role: 'user', content: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}` },
+        ],
+        temperature: 0,
+        max_tokens: 200,
+      });
+      const text = out && out.response ? String(out.response) : '';
+      const m = text.match(/\{[\s\S]*\}/);
+      if (!m) throw new Error('unparseable AI response');
+      const v = JSON.parse(m[0]);
+      return {
+        verdict: v.verdict === 'SPAM' ? 'SPAM' : 'LEGIT',
+        reason: String(v.reason || 'n/a').slice(0, 200),
+        agent_declared: !!v.agent_declared,
+      };
+    } catch (e) {
+      lastErr = e; // try the next model
+    }
+  }
+  throw lastErr || new Error('no AI models configured');
 }
 
 async function handleContact(request, env) {
