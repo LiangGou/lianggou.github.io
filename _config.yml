@@ -1,7 +1,7 @@
 # Post stats (Cloudflare Worker + D1, see worker/README.md).
 # Empty worker_url = counters hidden until the backend is live.
 stats:
-  worker_url: ""
+  worker_url: "https://blog-stats.lgou-psu.workers.dev"
 
 # Site settings
 title: "Liang Gou"
