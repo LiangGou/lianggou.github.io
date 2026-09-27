@@ -31,9 +31,6 @@ author:
   bio: "AI enthusiast finding balance through coding, marathoning, meditation, and fasting."
   location: "San Francisco Bay Area"
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/LiangGou"
     - label: "Google Scholar"
       icon: "fas fa-fw fa-graduation-cap"
       url: "https://scholar.google.com/citations?user=x3VK0fAAAAAJ"

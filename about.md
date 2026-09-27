@@ -6,14 +6,10 @@ author_profile: true
 ---
 
 > An AI enthusiast attempting to find balance through coding, marathoning, meditation, and fasting. Immersed in cutting-edge AI advancements while upholding his engineering principles. When he's not pushing the boundaries of technology, you can find him channeling his inner peace or gearing up for another marathon. Truly, he seeks the perfect blend of mind, body, and technology.
->
-> — Prompted with GPT-4
-
 ## What I write about
 
 - **Applied ML** — what actually works when research meets production
 - **Engineering leadership** — building teams that ship ambitious technical bets
-- **The founder path** — notes from exploring what's next, in the open
 
 ## A note
 
@@ -21,5 +17,4 @@ Everything I write here is my own opinion. It doesn't represent my employer, Cis
 
 ## Elsewhere
 
-- GitHub: [LiangGou](https://github.com/LiangGou)
 - Email: via the [subscribe form]({{ '/subscribe/' | relative_url }}) — I read every reply
