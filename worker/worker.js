@@ -1,7 +1,10 @@
 // Cloudflare Worker: anonymous per-post view + like counters for lianggou.github.io,
 // plus the /contact/ form backend with an LLM spam/quality gate.
 //
-// Backed by a D1 database bound as `DB`, and Workers AI bound as `AI`.
+// Backed by a D1 database bound as `DB`. The spam gate calls OpenAI through
+// a Cloudflare AI Gateway (see AI_GATEWAY_URL) and needs the OPENAI_API_KEY
+// secret. (The Workers AI `AI` binding may still be attached from an earlier
+// iteration; it is no longer used.)
 // No cookies, no IPs, no personal data in the counters — just one row per slug.
 //
 // Endpoints:
@@ -17,7 +20,7 @@
 //
 // Required bindings/variables (Cloudflare dashboard):
 //   DB                D1 database (existing `blog-stats`)
-//   AI                Workers AI binding
+//   OPENAI_API_KEY    secret — OpenAI API key for the spam gate
 //   FORMSPREE_FORM_ID variable — the Formspree "Contact" form ID. If unset,
 //                     legit messages are stashed in the D1 `contact_inbox`
 //                     table instead of forwarded (nothing is lost).
@@ -29,13 +32,14 @@ const CORS = {
 };
 
 const SITE = 'https://lianggou.github.io';
-// Primary + fallback chat models for the gate. If Cloudflare deprecates one
-// (as happened to llama-3.1-8b-instruct in May 2026), the next is tried before
-// failing open — the layer degrades gracefully instead of dying silently.
-const AI_MODELS = [
-  '@cf/meta/llama-4-scout-17b-16e-instruct',
-  '@cf/google/gemma-3-12b-it',
-];
+// Layer 2 gate: an LLM judge reached through Cloudflare AI Gateway -> OpenAI.
+// The gateway gives caching + analytics in the Cloudflare dashboard; the model
+// is swappable in one place. Requires the OPENAI_API_KEY worker secret.
+// If the key is missing or the call fails, the gate fails OPEN (the message is
+// treated as legit) — reCAPTCHA + honeypot still guard the form, and nothing
+// is ever silently dropped.
+const AI_GATEWAY_URL = 'https://gateway.ai.cloudflare.com/v1/04602cc47af527fc838625ea8c1087fd/blog-contact-gateway/openai';
+const AI_MODEL = 'gpt-4o-mini';
 
 // Layer 2 of the contact defenses: an LLM judge for spam/slop/prompt-injection.
 // NOTE (honest limits): this is a *quality* filter, not a human-vs-agent
@@ -101,32 +105,38 @@ async function stashInbox(db, { name, email, message, status, agent_declared }) 
     .run();
 }
 
-async function classifyWithAI(ai, { name, email, message }) {
-  let lastErr = null;
-  for (const model of AI_MODELS) {
-    try {
-      const out = await ai.run(model, {
-        messages: [
-          { role: 'system', content: GATE_SYSTEM_PROMPT },
-          { role: 'user', content: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}` },
-        ],
-        temperature: 0,
-        max_tokens: 200,
-      });
-      const text = out && out.response ? String(out.response) : '';
-      const m = text.match(/\{[\s\S]*\}/);
-      if (!m) throw new Error('unparseable AI response');
-      const v = JSON.parse(m[0]);
-      return {
-        verdict: v.verdict === 'SPAM' ? 'SPAM' : 'LEGIT',
-        reason: String(v.reason || 'n/a').slice(0, 200),
-        agent_declared: !!v.agent_declared,
-      };
-    } catch (e) {
-      lastErr = e; // try the next model
-    }
-  }
-  throw lastErr || new Error('no AI models configured');
+async function classifyWithAI(env, { name, email, message }) {
+  const key = (env.OPENAI_API_KEY || '').trim();
+  if (!key) throw new Error('OPENAI_API_KEY not configured');
+  const r = await fetch(`${AI_GATEWAY_URL}/chat/completions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${key}`,
+    },
+    body: JSON.stringify({
+      model: AI_MODEL,
+      temperature: 0,
+      max_tokens: 200,
+      response_format: { type: 'json_object' },
+      messages: [
+        { role: 'system', content: GATE_SYSTEM_PROMPT },
+        { role: 'user', content: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}` },
+      ],
+    }),
+  });
+  if (!r.ok) throw new Error(`ai gateway http ${r.status}`);
+  const j = await r.json();
+  const choice = j && j.choices && j.choices[0] && j.choices[0].message;
+  const text = choice && choice.content ? String(choice.content) : '';
+  const m = text.match(/\{[\s\S]*\}/);
+  if (!m) throw new Error('unparseable AI response');
+  const v = JSON.parse(m[0]);
+  return {
+    verdict: v.verdict === 'SPAM' ? 'SPAM' : 'LEGIT',
+    reason: String(v.reason || 'n/a').slice(0, 200),
+    agent_declared: !!v.agent_declared,
+  };
 }
 
 async function handleContact(request, env) {
@@ -156,7 +166,7 @@ async function handleContact(request, env) {
   // must not silently eat real messages (reCAPTCHA still guards the bots).
   let verdict = { verdict: 'LEGIT', reason: 'ai-unavailable-failopen', agent_declared: false };
   try {
-    verdict = await classifyWithAI(env.AI, { name, email, message });
+    verdict = await classifyWithAI(env, { name, email, message });
   } catch (e) { /* fail open, see above */ }
 
   if (verdict.verdict === 'SPAM') {
