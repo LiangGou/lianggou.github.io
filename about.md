@@ -16,6 +16,8 @@ author_profile: true
 
 Everything I write here is my own opinion. It doesn't represent my employer, Cisco, or any organization I've worked for — past or present.
 
+I write here as an individual. I never write about my company's internal work — no roadmaps, no unreleased products, no customer stories, no internal numbers. When an idea was shaped by something I encountered at work, I share the general lesson with the specifics stripped out.
+
 This blog website was built by Muse.
 
 ## Elsewhere
