@@ -104,4 +104,16 @@
   .author__urls a {
     padding-block: 0.35em; /* roomier tap targets */
   }
+
+  /* Phone: location on its own row, the four links side by side below it */
+  .author__urls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4em 1.1em;
+
+    li:first-child {
+      flex: 1 1 100%;
+    }
+  }
 }
