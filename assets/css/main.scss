@@ -59,6 +59,58 @@
   color: #6b7a86;
 }
 
+.contact-box {
+  background: #f4f7f9;
+  border: 1px solid #e2e8ec;
+  border-radius: 10px;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  max-width: 640px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.35em;
+  padding: 0.65em 0.9em;
+  border: 1px solid #c9d3da;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.contact-form .g-recaptcha {
+  margin: 1em 0;
+}
+
+.contact-form button {
+  padding: 0.65em 1.4em;
+  border: none;
+  border-radius: 8px;
+  background: #2f7bb8;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #256a9e;
+}
+
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
 /* Author links: always visible, no Follow-button toggle */
 .author__urls-wrapper {
   cursor: default;

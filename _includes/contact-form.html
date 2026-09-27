@@ -1,0 +1,33 @@
+<!--
+  Contact form. Backend: Formspree (form-to-email).
+  SETUP (two steps, both in your accounts):
+  1. Formspree: create a new form called "Contact", then replace
+     YOUR_CONTACT_FORM_ID below with its form ID. In that form's
+     Settings tab, enable CAPTCHA -> "Custom reCAPTCHA" and paste
+     your reCAPTCHA SECRET key there.
+  2. Google: register lianggou.github.io at
+     https://www.google.com/recaptcha/admin (reCAPTCHA v2, Checkbox),
+     then replace YOUR_RECAPTCHA_SITE_KEY below with the SITE key.
+-->
+<div class="contact-box">
+  <form action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" class="contact-form">
+    <label>
+      Your name
+      <input type="text" name="name" autocomplete="name" required>
+    </label>
+    <label>
+      Your email
+      <input type="email" name="email" autocomplete="email" required>
+    </label>
+    <label>
+      Message
+      <textarea name="message" rows="6" required></textarea>
+    </label>
+    <!-- Honeypot: invisible to humans, catches naive bots -->
+    <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off">
+    <input type="hidden" name="_subject" value="Contact form — lianggou.github.io">
+    <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+    <button type="submit">Send message</button>
+  </form>
+</div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>

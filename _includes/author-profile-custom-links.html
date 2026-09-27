@@ -1,12 +1,4 @@
-<!-- Email link assembled by JavaScript so the address never appears
-     in the page source (defeats scrapers that harvest mailto: links). -->
-<li><a href="#" id="author-email-link" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+<!-- Email goes to the contact page (form + reCAPTCHA) so the address
+     never appears anywhere on the site. -->
+<li><a href="{{ '/contact/' | relative_url }}" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
 <li><a href="https://lianggou.github.io/feed.xml" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i><span class="label">Feed</span></a></li>
-<script>
-  (function () {
-    var el = document.getElementById('author-email-link');
-    if (el) {
-      el.setAttribute('href', 'mailto:' + 'moc.liamg@usp.uogl'.split('').reverse().join(''));
-    }
-  })();
-</script>
