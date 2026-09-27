@@ -9,10 +9,6 @@ author_profile: true
 >
 > — Prompted with GPT-4
 
-**Liang Gou** is a Director of AI Engineering at Cisco, where he leads teams building AI capabilities into real products. A published machine-learning researcher — his DeepVID paper on machine-vision surface-defect inspection continues to be cited — he works at the intersection of research and shipping: from evaluating frontier models to leading production AI programs.
-
-After three years directing AI engineering at scale, he's exploring founder and founding roles where he can own both the product and the technical bet.
-
 ## What I write about
 
 - **Applied ML** — what actually works when research meets production
