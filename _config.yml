@@ -67,6 +67,10 @@ defaults:
       share: false
       comments: true
 
+# Serve dot-directories like .well-known (Jekyll skips them by default)
+include:
+  - .well-known
+
 # Exclude from build
 exclude:
   - README.md

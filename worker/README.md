@@ -27,7 +27,51 @@ no personal data — just one counter row per post URL.
    - Send that URL to Astro (or put it in `_config.yml` under
      `stats: worker_url:`), and the read/like counters go live on every post.
 
-## Notes
+## Contact form backend — LLM spam gate (three-layer defense)
+
+The `/contact/` page posts to the Worker (`POST /api/contact`) instead of
+directly to Formspree. Defenses, in order:
+
+0. **Honeypot** — a hidden `_gotcha` field; naive bots fill it, humans never
+   see it. Filled → quarantined, sender sees a fake success.
+1. **reCAPTCHA v2** — widget on the form; the token is forwarded to Formspree,
+   which verifies it against the secret key in the form's Settings → CAPTCHA →
+   Custom reCAPTCHA. (Needs your keys — see below.)
+2. **LLM quality gate** — Workers AI (`@cf/meta/llama-3.1-8b-instruct`, free
+   tier) classifies each message as LEGIT or SPAM, and also catches prompt
+   injection ("ignore previous instructions", etc.). Spam is quarantined in
+   D1, never forwarded, sender sees a fake success. Honest limit: this is a
+   *quality* filter, not a human-vs-agent detector — declared agents are
+   explicitly welcome (see `/.well-known/agent-contact.json`).
+3. **Agent protocol** — well-behaved agents declare `name / operator / purpose`
+   (see the contact page); the LLM gate lets declared agents through.
+
+Legit messages are forwarded to the Formspree "Contact" form (email
+notification to you). If the Formspree form ID isn't set yet, or a forward
+fails, legit messages are stashed in the D1 `contact_inbox` table — read them
+in the D1 console, nothing is silently dropped.
+
+### Dashboard steps to activate (all in dash.cloudflare.com)
+
+1. **Update the Worker code** — Workers & Pages → `blog-stats` → Edit code →
+   replace everything with the contents of `worker.js` → Deploy.
+2. **Add the Workers AI binding** — Worker → Settings → Bindings → Add binding
+   → Workers AI → Variable name `AI` → Deploy. (Free tier, no payment needed.)
+3. **Create the tables** — D1 → `blog-stats` → Console → paste the contents of
+   `schema-contact.sql` → Execute.
+4. **Set the Formspree form ID** — Worker → Settings → Variables and Secrets →
+   add variable `FORMSPREE_FORM_ID` = your Formspree "Contact" form ID
+   (e.g. `xpqvvljy`). Until this is set, legit messages pile up in
+   `contact_inbox` instead of emailing you.
+5. **reCAPTCHA keys** — register `lianggou.github.io` at
+   https://www.google.com/recaptcha/admin (v2, Checkbox) → put the SITE key in
+   the site's `_includes/contact-form.html` (`data-sitekey`) → put the SECRET
+   key in the Formspree form's Settings → CAPTCHA → Custom reCAPTCHA.
+
+To review quarantined spam anytime: D1 → `blog-stats` → Console →
+`SELECT * FROM contact_quarantine ORDER BY id DESC LIMIT 20;`
+
+## Notes (counters)
 
 - Counts start at zero from the day the Worker goes live — no backfill.
 - A reader can like a post once per browser (remembered locally, not tracked).

@@ -1,16 +1,19 @@
 <!--
-  Contact form. Backend: Formspree (form-to-email).
+  Contact form. Flow: POST -> Cloudflare Worker (/api/contact) -> honeypot +
+  Workers AI spam gate -> forwarded to Formspree (which verifies reCAPTCHA).
+  Backend code: worker/worker.js. Defenses documented in worker/README.md.
+
   SETUP (two steps, both in your accounts):
-  1. Formspree: create a new form called "Contact", then replace
-     YOUR_CONTACT_FORM_ID below with its form ID. In that form's
-     Settings tab, enable CAPTCHA -> "Custom reCAPTCHA" and paste
-     your reCAPTCHA SECRET key there.
+  1. Formspree: create a new form called "Contact". In its Settings tab,
+     enable CAPTCHA -> "Custom reCAPTCHA" and paste your reCAPTCHA SECRET key.
+     Then set FORMSPREE_FORM_ID to the form ID in the Worker's dashboard
+     variables (until then, legit messages pile up in the D1 contact_inbox).
   2. Google: register lianggou.github.io at
      https://www.google.com/recaptcha/admin (reCAPTCHA v2, Checkbox),
      then replace YOUR_RECAPTCHA_SITE_KEY below with the SITE key.
 -->
 <div class="contact-box">
-  <form action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" class="contact-form">
+  <form action="{{ site.stats.worker_url }}/api/contact" method="POST" class="contact-form">
     <label>
       Your name
       <input type="text" name="name" autocomplete="name" required>

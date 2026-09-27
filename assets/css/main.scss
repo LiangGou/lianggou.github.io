@@ -111,6 +111,19 @@
   left: -9999px;
 }
 
+.contact-thanks {
+  background: #e6f4ea;
+  border: 1px solid #b7e0c3;
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  font-weight: 600;
+}
+
+.contact-thanks.contact-error {
+  background: #fdecea;
+  border-color: #f5c6c0;
+}
+
 /* Author links: always visible, no Follow-button toggle */
 .author__urls-wrapper {
   cursor: default;
