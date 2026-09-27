@@ -14,9 +14,9 @@ author_profile: true
 
 ## A note
 
-Everything I write here is my own opinion. It doesn't represent my employer, Cisco, or any organization I've worked for — past or present.
+**Disclaimer.** The views expressed on this site are solely my own. They do not reflect the views of my employer, Cisco, or any organization I have worked for — past or present. I am not an authorized spokesperson for any of them, and nothing here should be read as an official statement or position.
 
-I write here as an individual. I never write about my company's internal work — no roadmaps, no unreleased products, no customer stories, no internal numbers. When an idea was shaped by something I encountered at work, I share the general lesson with the specifics stripped out.
+I take confidentiality seriously: I never publish non-public information belonging to any employer — no internal roadmaps, unreleased products, customer details, or internal data. When an idea has been shaped by professional experience, I share the general insight, never the specifics.
 
 This blog website was built by Muse.
 
