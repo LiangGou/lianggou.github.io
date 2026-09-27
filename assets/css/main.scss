@@ -58,3 +58,50 @@
   font-size: 0.85em;
   color: #6b7a86;
 }
+
+/* Author links: always visible, no Follow-button toggle */
+.author__urls-wrapper {
+  cursor: default;
+
+  button {
+    display: none;
+  }
+}
+
+.author__urls {
+  display: block;
+  position: relative;
+  inset-inline-end: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+/* On small screens the profile is a 3-column row; stack it so the
+   links get full width instead of a cramped side column. */
+@include breakpoint(max-width $large) {
+  .author__avatar,
+  .author__content,
+  .author__urls-wrapper {
+    display: block;
+  }
+
+  .author__content {
+    padding-inline: 0;
+  }
+
+  .author__urls-wrapper {
+    margin-top: 0.75em;
+  }
+
+  .author__urls a {
+    padding-block: 0.35em; /* roomier tap targets */
+  }
+}
