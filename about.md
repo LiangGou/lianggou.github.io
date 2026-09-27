@@ -16,6 +16,8 @@ author_profile: true
 
 Everything I write here is my own opinion. It doesn't represent my employer, Cisco, or any organization I've worked for — past or present.
 
+This blog website was built by Muse.
+
 ## Elsewhere
 
 - Email: via the [subscribe form]({{ '/subscribe/' | relative_url }}) — I read every reply
