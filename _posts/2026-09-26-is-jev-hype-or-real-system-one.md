@@ -55,6 +55,6 @@ Here's the strategic part. Frontier models are dominated by three labs — Anthr
 
 But System One is wide open. It's the layer where researchers, practitioners, and startups can build things that are *complementary* to frontier models rather than competitive with them: the fast, cheap, calibrated reflexes that sit under and around slow reasoning. Every agent with a System Two brain will need a System One nervous system.
 
-And the two systems feed each other. In the short term, I expect System Two to do more of the helping: frontier models reasoning carefully to generate feedback and pseudo-labels that keep improving System One — exactly the flywheel in my BGL test, where a few good examples did the work of a thousand rules. Distill deliberation into reflex, then spend the savings on more deliberation.
+And the two systems feed each other. In the short term, I expect System Two to do more of the helping: frontier models reasoning carefully to generate feedback and pseudo-labels that keep improving System One. A few good examples can do the work of a thousand rules. Distill deliberation into reflex, then spend the savings on more deliberation.
 
 So: is Jev hype or a real System One? My answer is neither camp's. It's not hype — the speed, cost, and calibration direction are real, and my own measurements back the shape of the claims. It's not a paradigm shift either. It's something more useful than both: a credible first draft of a layer AI genuinely needs, and an invitation to build the rest of it.
