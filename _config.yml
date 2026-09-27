@@ -3,8 +3,18 @@ title: "Liang Gou"
 description: "Writing on AI and engineering leadership — by an AI enthusiast seeking the perfect blend of mind, body, and technology."
 url: "https://lianggou.github.io"
 baseurl: ""
-repository: "LiangGou/personal-site"
+repository: "LiangGou/lianggou.github.io"
 locale: "en-US"
+
+# Comments (giscus — powered by GitHub Discussions, no ads, no extra accounts)
+comments:
+  provider: "giscus"
+  giscus:
+    repo_id: "R_kgDOKKkKzA"
+    category_name: "General"
+    category_id: "DIC_kwDOKKkKzM4DGerK"
+    discussion_term: "pathname"
+    theme: "light"
 
 # Theme: Minimal Mistakes (remote theme, GitHub Pages compatible)
 remote_theme: "mmistakes/minimal-mistakes@4.28.1"
@@ -54,7 +64,7 @@ defaults:
       author_profile: true
       read_time: true
       share: false
-      comments: false
+      comments: true
 
 # Exclude from build
 exclude:
