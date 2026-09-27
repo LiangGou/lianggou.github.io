@@ -1,0 +1,60 @@
+---
+---
+
+@import "minimal-mistakes/skins/air";
+@import "minimal-mistakes";
+
+/* Personal touches */
+
+.page__footer-disclaimer {
+  margin-top: 1em;
+  font-size: 0.8em;
+  opacity: 0.75;
+}
+
+.subscribe-box {
+  background: #f4f7f9;
+  border: 1px solid #e2e8ec;
+  border-radius: 10px;
+  padding: 1.5em;
+  margin: 1.5em 0;
+}
+
+.subscribe-box h3 {
+  margin-top: 0;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  margin: 1em 0;
+}
+
+.subscribe-form input[type="email"] {
+  flex: 1 1 220px;
+  padding: 0.65em 0.9em;
+  border: 1px solid #c9d3da;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.subscribe-form button {
+  padding: 0.65em 1.4em;
+  border: none;
+  border-radius: 8px;
+  background: #2f7bb8;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.subscribe-form button:hover {
+  background: #256a9e;
+}
+
+.fine {
+  font-size: 0.85em;
+  color: #6b7a86;
+}

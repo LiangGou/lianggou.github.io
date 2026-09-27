@@ -1,0 +1,67 @@
+# Site settings
+title: "Liang Gou"
+description: "Writing on AI, engineering leadership, and the founder path — by an AI enthusiast seeking the perfect blend of mind, body, and technology."
+url: "https://lianggou.github.io"
+baseurl: ""
+repository: "LiangGou/personal-site"
+locale: "en-US"
+
+# Theme: Minimal Mistakes (remote theme, GitHub Pages compatible)
+remote_theme: "mmistakes/minimal-mistakes@4.28.1"
+minimal_mistakes_skin: "air"
+
+# Plugins (all on the GitHub Pages whitelist)
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-include-cache
+
+markdown: kramdown
+
+# Feed
+feed:
+  path: feed.xml
+  posts_limit: 20
+
+# Author profile (sidebar)
+author:
+  name: "Liang Gou"
+  avatar: "/assets/images/profile.jpg"
+  bio: "AI enthusiast finding balance through coding, marathoning, meditation, and fasting."
+  location: "San Francisco Bay Area"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/LiangGou"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "https://scholar.google.com/citations?user=x3VK0fAAAAAJ"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/lianggou"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:lgou.psu@gmail.com"
+    - label: "Feed"
+      icon: "fas fa-fw fa-rss-square"
+      url: "https://lianggou.github.io/feed.xml"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: false
+      comments: false
+
+# Exclude from build
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock

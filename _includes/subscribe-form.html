@@ -1,0 +1,17 @@
+<!--
+  Newsletter subscribe form.
+  Backend: Formspree (form-to-email, no recommendation algorithm, no feed).
+  SETUP: create a free form at https://formspree.io, then replace
+  YOUR_FORMSPREE_ID below with your form ID. Subscribers land in your
+  inbox / Formspree dashboard — you own the list, export anytime.
+-->
+<div class="subscribe-box{% if include.compact %} compact{% endif %}">
+  <h3>Get new posts by email</h3>
+  <p>One thoughtful email when I publish. No spam, no algorithm — unsubscribe anytime.</p>
+  <form action="https://formspree.io/f/xyezdngk" method="POST" class="subscribe-form">
+    <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+    <input type="hidden" name="_subject" value="New subscriber — lianggou.github.io">
+    <button type="submit">Subscribe</button>
+  </form>
+  <p class="fine">Prefer RSS? <a href="{{ '/feed.xml' | relative_url }}">Grab the feed</a>.</p>
+</div>
