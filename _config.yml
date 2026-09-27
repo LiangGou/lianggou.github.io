@@ -1,3 +1,8 @@
+# Post stats (Cloudflare Worker + D1, see worker/README.md).
+# Empty worker_url = counters hidden until the backend is live.
+stats:
+  worker_url: ""
+
 # Site settings
 title: "Liang Gou"
 description: "Writing on AI and engineering leadership — by an AI enthusiast seeking the perfect blend of mind, body, and technology."
