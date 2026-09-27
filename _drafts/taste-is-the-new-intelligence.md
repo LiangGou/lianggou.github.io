@@ -6,29 +6,19 @@ description: "AI is making intelligence abundant. When anyone can generate anyth
 
 AI is making intelligence abundant.
 
-Today, anyone can generate a polished essay, a compelling image, a product strategy, a software prototype, or a hundred new ideas in minutes. Capabilities that once required years of training are becoming available through a prompt.
+Today, anyone can generate a polished essay, a compelling image, a product strategy, a software prototype, or a hundred new ideas in minutes. Capabilities that once took years of training now take a prompt.
 
-But when creation becomes cheap, something else becomes scarce:
+But when creation becomes cheap, something else becomes scarce: judgment.
 
-Judgment.
-
-The defining question of the AI era is no longer:
-
-Can you make something?
-
-It is:
-
-Do you know what is worth making?
+The defining question of the AI era is no longer "Can you make something?" It's "Do you know what is worth making?"
 
 That is taste.
 
-## Taste Is More Than Style
+## Taste is more than style
 
-Taste is often mistaken for aesthetics — the ability to recognize what looks elegant, sounds sophisticated, or feels original.
+Taste gets mistaken for aesthetics — spotting what looks elegant or sounds sophisticated. That's the shallow version.
 
-But real taste goes deeper.
-
-It is the ability to distinguish:
+Real taste is the ability to distinguish:
 
 * Substance from polish
 * Insight from repetition
@@ -36,92 +26,62 @@ It is the ability to distinguish:
 * Clarity from oversimplification
 * What is merely possible from what truly matters
 
-AI can generate one hundred plausible answers. Taste is the ability to reject ninety-nine of them.
+AI can generate one hundred plausible answers. Taste is rejecting ninety-nine of them.
 
-AI can imitate the style of a great writer, designer, musician, or thinker. But style is only the visible surface. Beneath it are lived experience, values, obsession, sacrifice, curiosity, and thousands of decisions accumulated over time. AI can reproduce the pattern, but it does not inherit the reason the pattern mattered.
+AI can imitate the style of any great writer, designer, or thinker. But style is the visible surface. Underneath are lived experience, values, obsession, sacrifice — thousands of decisions accumulated over time. AI reproduces the pattern without inheriting the reason the pattern mattered.
 
-## Abundance Changes the Bottleneck
+## The bottleneck moved
 
-In the past, execution acted as a filter. Producing a book, film, product, scientific experiment, or software system required significant time, skill, and resources — only a small number of ideas could be realized.
+In the past, execution was the filter. Books, films, products, experiments — making any of them cost so much time and skill that only a few ideas ever got built.
 
-AI removes much of that constraint. We can now generate more ideas than we can evaluate, more content than we can consume, and more software than we can responsibly maintain.
+That constraint is gone. We can now generate more ideas than we can evaluate, more content than we can consume, more software than we can responsibly maintain.
 
-The bottleneck has moved from generation to selection.
-
-When AI rapidly explores what is possible, humans become responsible for establishing the hierarchy within it:
+The bottleneck moved from generation to selection. And selection is a human job. When AI explores what is possible, someone has to decide:
 
 Which idea deserves attention?
 
-Which result should be trusted?
+Which result can be trusted?
 
-Which feature should not be built?
+Which feature should never be built?
 
-Which problem is important enough to spend years solving?
+Which problem is worth years of your life?
 
-Which direction reflects who we are?
+Those aren't technical questions. They need context, values, accountability — taste.
 
-These are not merely technical questions. They require context, values, accountability, and taste.
+## I worry more about homogenization than replacement
 
-## The Risk Is Not Only Replacement
+Everyone argues about whether AI will replace us. I worry about something more immediate: homogenization.
 
-Much of the public discussion about AI focuses on whether machines will replace human work.
+These models are trained on all of us. They are extremely good at producing the plausible, familiar answer — the statistical average of what has worked before. Used actively, that's leverage. Used passively, it drags everything toward the middle.
 
-A more immediate danger is homogenization.
+Writing becomes polished but interchangeable. Products become feature-rich but indistinct. Strategies become comprehensive but uncommitted. Everyone gets the same models, the same patterns, the same answers.
 
-AI systems are trained on patterns created by many people. They are exceptionally good at producing answers that are plausible, familiar, and statistically aligned with what has worked before. Used well, this is powerful. Used passively, it pulls us toward the average.
+When everyone can produce competent work, competence stops being the differentiator. Point of view, conviction, taste — that's what's left.
 
-Our writing becomes polished but interchangeable. Our products become feature-rich but indistinct. Our strategies become comprehensive but uncommitted. Everyone gains access to the same models, the same patterns, and increasingly the same answers.
+## Form your judgment first
 
-In a world where everyone can produce competent work, competence is no longer enough. A distinctive point of view, conviction, and taste become the differentiators.
+The best human-AI relationship isn't competition. It's a loop: I define what matters, AI expands what's possible, I select and redirect, AI refines and executes — and I decide whether the result deserves to exist.
 
-## AI Should Expand Judgment, Not Replace It
+Sequence matters. Ask AI what to think before you've thought, and you borrow its center of gravity: a convincing synthesis of existing thought, but not a point of view that's yours.
 
-The strongest relationship between humans and AI is not competition. It is a creative loop: the human defines what matters, AI expands what is possible, the human selects and redirects, AI helps refine and execute — and the human decides whether the result deserves to exist, taking responsibility for what happens next.
+My rule: form your judgment first, then let AI challenge and amplify it. Don't let it remove you from the process — let it push you toward the most human parts: framing, meaning, choice, responsibility.
 
-The sequence matters.
+## The moat isn't the model
 
-When we ask AI what to think before developing any judgment of our own, we risk borrowing its statistical center of gravity — a convincing synthesis of existing thought, but not a point of view that belongs to us.
+I build AI systems for a living, and here's what I've learned: model access won't be the durable advantage. Models get better, cheaper, interchangeable.
 
-The better principle is: form your judgment, then use AI to challenge and amplify it.
+The advantage will be everything around the model — the data you trust, the standards you hold, how quickly you learn what's actually good. An org with weak judgment uses AI to produce mediocre work faster. An org with strong taste uses it to explore bolder ideas and recognize signal earlier.
 
-AI should not remove us from the creative process. It should move us toward its most human parts: framing, meaning, choice, and responsibility.
+Same for leadership. The leaders who matter won't be the ones generating the most answers. They'll be the ones asking the right questions, holding the bar, protecting the weird idea, knowing when to stop.
 
-## The Competitive Advantage Will Not Be the Model
+AI optimizes the path. We still choose the destination.
 
-The same principle applies to organizations.
+## Taste is the new intelligence
 
-Access to powerful AI models will not remain a durable advantage. Models will improve, spread, and become interchangeable for many tasks. The real advantage will come from everything around the model:
+The real opportunity isn't productivity. It's spending less time generating every option and more time deciding what deserves your energy.
 
-Trusted data.
-Deep context.
-Clear standards.
-Strong evaluation.
-Fast feedback loops.
-And a coherent definition of what "good" means.
+But it's not automatic. AI amplifies whatever you bring — originality or imitation, clarity or confusion, courage or conformity.
 
-An organization with weak judgment can use AI to produce more mediocre work, faster. An organization with strong taste can use the same technology to explore more ambitious ideas, recognize important signals earlier, and act with greater coherence.
+So maybe the most important skill of the AI era isn't prompting or coding. It's taste: knowing what matters, rejecting what doesn't, standing behind what remains.
 
-Leadership changes as well. The best leaders will not be those who generate the most answers, but those who identify the right questions, establish a high standard, protect unconventional ideas, and know when to scale, stop, or change direction.
-
-AI may optimize the path.
-
-Humans still choose the destination.
-
-## Taste Is the New Intelligence
-
-The deepest opportunity of AI is not simply productivity. It is the chance to spend less time producing every possible option and more time deciding what deserves our energy, attention, and commitment.
-
-But that future is not automatic. AI amplifies the source we bring to it — originality or imitation, clarity or confusion, courage or conformity.
-
-So the most important skill in the AI era may not be prompting, coding, or even intelligence in the traditional sense.
-
-It may be taste:
-
-The ability to know what matters.
-
-The discipline to reject what does not.
-
-And the courage to stand behind what remains.
-
-AI gives us infinite possibilities.
-Taste gives those possibilities direction.
+AI gives us infinite possibilities. Taste gives them direction.
