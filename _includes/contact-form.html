@@ -9,8 +9,10 @@
      Then set FORMSPREE_FORM_ID to the form ID in the Worker's dashboard
      variables (until then, legit messages pile up in the D1 contact_inbox).
   2. Google: register lianggou.github.io at
-     https://www.google.com/recaptcha/admin (reCAPTCHA v2, Checkbox),
-     then replace YOUR_RECAPTCHA_SITE_KEY below with the SITE key.
+     https://www.google.com/recaptcha/admin (reCAPTCHA v2, Checkbox) —
+     DONE Sep 27, 2026 (site key wired into the form). The SECRET key goes
+     into the Formspree form's Settings -> CAPTCHA -> Custom reCAPTCHA
+     (never in the site code).
 -->
 <div class="contact-box">
   <form action="{{ site.stats.worker_url }}/api/contact" method="POST" class="contact-form">
@@ -29,7 +31,7 @@
     <!-- Honeypot: invisible to humans, catches naive bots -->
     <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off">
     <input type="hidden" name="_subject" value="Contact form — lianggou.github.io">
-    <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+    <div class="g-recaptcha" data-sitekey="6LfZf9ItAAAAACtXqC-9Hkv6-9Qi4-S_iH6irwy4"></div>
     <button type="submit">Send message</button>
   </form>
 </div>
