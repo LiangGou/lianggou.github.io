@@ -87,35 +87,42 @@
 /* On small screens the profile is a 3-column row; stack it so the
    links get full width instead of a cramped side column. */
 @include breakpoint(max-width $large) {
-  /* Phone header: name + bio on the left, avatar on the right */
+  /* Phone header: avatar + name on the left, bio in the right column */
   .sidebar .h-card {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1em;
+    align-items: start;
   }
 
   .author__content {
-    flex: 1 1 0;
-    min-width: 0;
-    order: 1;
-    padding-inline: 0;
+    display: contents;
   }
 
   .author__avatar {
-    flex: 0 0 auto;
-    order: 2;
-    width: 76px;
+    grid-column: 1;
+    grid-row: 1;
+    width: 72px;
     height: auto;
-    margin-inline-start: 1em;
   }
 
   .author__avatar img {
     width: 100%;
   }
 
+  .author__name {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .author__bio {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    min-width: 0;
+  }
+
   .author__urls-wrapper {
-    flex: 1 1 100%;
-    order: 3;
+    grid-column: 1 / -1;
     margin-top: 0.75em;
   }
 
