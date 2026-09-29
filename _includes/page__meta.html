@@ -50,6 +50,7 @@
   var likesEl = root.querySelector('[data-stat-likes]');
   var likeBtn = root.querySelector('[data-stat-like]');
   var likedKey = 'liked:' + slug;
+  var cacheKey = 'stats:' + slug;
   function fmt(n) {
     n = Number(n) || 0;
     if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
@@ -59,7 +60,24 @@
     if (!d) return;
     if (viewsEl && d.views != null) viewsEl.textContent = fmt(d.views);
     if (likesEl && d.likes != null) likesEl.textContent = fmt(d.likes);
+    try { localStorage.setItem(cacheKey, JSON.stringify({ views: d.views, likes: d.likes })); } catch (e) {}
   }
+  // Show last-known numbers instantly; keeps the byline populated on
+  // networks that block the stats endpoint (e.g. corporate WiFi).
+  try {
+    var cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+    if (cached && (cached.views != null || cached.likes != null)) render(cached);
+  } catch (e) {}
+  function postHit(retried) {
+    fetch(base + '/hit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug: slug })
+    }).then(function (r) { return r.json(); }).then(render).catch(function () {
+      if (!retried) setTimeout(function () { postHit(true); }, 2000);
+    });
+  }
+  postHit(false);
   function markLiked() {
     likeBtn.classList.add('is-liked');
     likeBtn.setAttribute('disabled', 'disabled');
@@ -67,11 +85,6 @@
     if (icon) { icon.classList.remove('far'); icon.classList.add('fas'); }
   }
   try { if (localStorage.getItem(likedKey)) markLiked(); } catch (e) {}
-  fetch(base + '/hit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ slug: slug })
-  }).then(function (r) { return r.json(); }).then(render).catch(function () {});
   likeBtn.addEventListener('click', function () {
     try { if (localStorage.getItem(likedKey)) return; } catch (e) {}
     fetch(base + '/like', {
