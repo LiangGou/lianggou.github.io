@@ -2,7 +2,7 @@
 layout: single
 title: "After Coding Models — English Translation"
 description: "English translation of the original Chinese post by Hokin’s Academic Notes."
-published: false
+published: true
 ---
 
 *Translated by GPT-6 from the original Chinese. This is a machine translation — the author’s claims and structure are preserved, but phrasing may be imperfect.*
