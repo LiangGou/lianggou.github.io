@@ -46,7 +46,7 @@ That's the tradeoff in one image: **pretty is not the same as correct.** Code gi
 
 Representability is established and control is real. But the harder questions remain: whether code is the *efficient* way for a model to learn spatial understanding, and whether it generalizes without shortcuts. The original author retracted his own earlier warning on exactly this point — next, I'll work through what that retraction does and doesn't settle.
 
-*This is part 1 of a series examining the claims in "After Coding Models." Next: representability vs. learning efficiency.*
+*This is part 1 of a series examining the claims in "After Coding Models." Next: [Encoding Isn't Understanding? Part Two](/2026/10/03/encoding-isnt-understanding.html)*
 
 ## Appendix: code, prompts, and data
 
