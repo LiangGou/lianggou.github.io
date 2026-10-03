@@ -4,7 +4,7 @@ title: "Is Code the Universal Representation?"
 description: "A provocative post claims coding models can generate anything — images, video, 3D worlds — and asks whether code is the optimal universal representation. I checked the claims and ran the experiments. Part 1: yes, code can render an image with no diffusion model at all."
 ---
 
-*Inspired by "Coding Models之后" (After Coding Models) by Hokin的学术笔记 (Hokin's Academic Notes) — [original post](http://xhslink.com/o/9IpvfyZmy1Q). An [English translation of the original post](/after-coding-models-translation/) is available (translated by GPT-6). All credit for the ideas under examination goes to the original author; any mistakes in my checking are mine.*
+*Inspired by "Coding Models之后" (After Coding Models) by Hokin的学术笔记 (Hokin's Academic Notes) — [original post](http://xhslink.com/o/9IpvfyZmy1Q). An [English translation of the original post](/after-coding-models-translation.html) is available (translated by GPT-6). All credit for the ideas under examination goes to the original author; any mistakes in my checking are mine.*
 
 I came across a thought-provoking post — "After Coding Models," eleven images, dense with claims. The core observation is hard to argue with: today's strongest coding models don't just write software. They generate images, animations, 3D scenes, and interactive environments by writing executable programs. Then comes the big question: **is code the optimal universal representation?** Can you express anything — a photograph, a video, a world — as a program?
 
