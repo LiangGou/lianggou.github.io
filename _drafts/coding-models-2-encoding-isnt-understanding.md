@@ -40,4 +40,16 @@ So here's the humble version of the original warning, the one I'd defend: a succ
 
 The author's retraction was right about the letter of his old claim. The spirit of it — *don't confuse "can be encoded" with "is efficiently learned"* — is a distinction the whole field could stand to keep.
 
+## They don't have to compete
+
+There's a framing I'd like to push back on gently — including my own from Part One: the idea that it's code *versus* native generators, with a winner. In practice, the interesting systems compose them, and the debate's vocabulary is blurrier than it looks.
+
+First, the labels overlap. "Sequence model" describes how inputs are organized; "coding model" describes generating executable programs; "native generator" describes a learned model producing images or 3D content directly. A single system can be all three at once — the diffusion transformer (DiT) is a native image generator whose backbone is a transformer running over patches. Sequence all the way down.
+
+Second, when a coding model "builds a 3D scene," notice where the work actually happens. The model writes down geometry and material parameters; the *renderer* — an explicit algorithm — computes the intersections, shadows, and reflections. Much of the spatial calculation isn't learned at all; it's executed. So a compact program is no evidence that spatial understanding was learned cheaply. The cost of learning to write that code remains unknown, and the credit belongs to the whole pipeline, not to the program text alone.
+
+And third, the combinations are where the real progress is. An LLM plans a scene layout in boxes, and a diffusion model fills it in following that layout. A 2D image prior guides the optimization of a 3D scene. Robot programs compose perception outputs with control APIs. In each case the capability belongs to the complete system — no single component gets to claim the win.
+
+So maybe the right question isn't which representation wins. It's which combination of representations, learned models, tools, and feedback delivers reliable performance under a task's constraints — and being honest about which component did which part of the work.
+
 *Next in the series: what Fodor's Language of Thought actually supports — and what it doesn't.*
