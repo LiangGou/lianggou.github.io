@@ -4,7 +4,7 @@ title: "Is Code the Universal Representation? Part One"
 description: "A provocative post claims coding models can generate anything — images, video, 3D worlds — and asks whether code is the optimal universal representation. I checked the claims and ran the experiments. Part 1: yes, code can render an image with no diffusion model at all."
 ---
 
-*Inspired by "Coding Models之后" (After Coding Models) by Hokin的学术笔记 (Hokin's Academic Notes) — [original post](http://xhslink.com/o/9IpvfyZmy1Q). An [English translation of the original post](/after-coding-models-translation.html) is available (translated by GPT-6). All credit for the ideas under examination goes to the original author; any mistakes in my checking are mine.*
+*Inspired by "Coding Models之后" (After Coding Models) by Hokin的学术笔记 (Hokin's Academic Notes) — [original post](http://xhslink.com/o/9IpvfyZmy1Q). [1] An [English translation of the original post](/after-coding-models-translation.html) is available (translated by GPT-6). All credit for the ideas under examination goes to the original author; any mistakes in my checking are mine.*
 
 I came across a thought-provoking post — "After Coding Models," eleven images, dense with claims. The core observation is hard to argue with: today's strongest coding models don't just write software. They generate images, animations, 3D scenes, and interactive environments by writing executable programs. Then comes the big question: **is code the optimal universal representation?** Can you express anything — a photograph, a video, a world — as a program?
 
@@ -12,7 +12,7 @@ The question the post poses stuck with me: if code can express images, video, 3D
 
 ## Claim 1: code can produce an image with no diffusion model
 
-The first claim held up better than I expected. Here's the idea, stripped down: a program describes a scene — where the objects are, what they're made of, where the light is, where the camera sits. A renderer then computes how light bounces around that scene and what the camera sees. Reflections, refraction through glass, soft shadows — all of it falls out of the math. No diffusion model, no training data, no image assets anywhere in the loop.
+The first claim held up better than I expected. Here's the idea, stripped down: a program describes a scene — where the objects are, what they're made of, where the light is, where the camera sits. A renderer then computes how light bounces around that scene and what the camera sees. Reflections, refraction through glass, soft shadows — all of it falls out of the math. No diffusion model, no training data, no image assets anywhere in the loop. [2]
 
 To make it concrete, I had a model write a small ray-tracer in Python and NumPy: three spheres on a checkerboard floor, a warm area light, a camera. Nothing else. It ran on CPU for about a minute and a half and produced this:
 
@@ -104,3 +104,9 @@ Starting from the blue-sphere scene, move the perspective camera from (6, 3, 8) 
 
 Projecting the sphere centers through the new camera puts chrome at 40.4% and glass at 60.1% of image width from the left — chrome stays left of glass. The code output matches; the generated image reverses them.
 </details>
+
+## References
+
+[1] Hokin的学术笔记. (n.d.). Coding Models之后 [After Coding Models]. Eleven-image Chinese illustrated post. [Original post](http://xhslink.com/o/9IpvfyZmy1Q). [English translation](/after-coding-models-translation.html) (translated by GPT-6).
+
+[2] Pharr, M., Jakob, W., & Humphreys, G. (2023). Physically Based Rendering: From Theory to Implementation (4th ed.). [Open textbook](https://pbr-book.org/4ed/Introduction/Photorealistic_Rendering_and_the_Ray-Tracing_Algorithm).
