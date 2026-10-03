@@ -1,0 +1,84 @@
+{
+  "image_camera_vs_previous_rmse_0_255": 59.18079340550973,
+  "image_camera_vs_horizontal_flip_rmse_0_255": 17.963888708809872,
+  "image_sizes": {
+    "base": [
+      1547,
+      1016
+    ],
+    "blue": [
+      1548,
+      1016
+    ],
+    "camera": [
+      1548,
+      1016
+    ]
+  },
+  "analytic_camera_projections": [
+    {
+      "variant": "base",
+      "horizon_v": 0.056140373141026656,
+      "projected_sphere_centers": [
+        {
+          "material_id": 1,
+          "center_u": 0.39153237512170297,
+          "center_v": 0.47367966491363916
+        },
+        {
+          "material_id": 2,
+          "center_u": 0.5661347134091412,
+          "center_v": 0.5381287820064554
+        },
+        {
+          "material_id": 3,
+          "center_u": 0.5937032717433525,
+          "center_v": 0.5066411324110229
+        }
+      ]
+    },
+    {
+      "variant": "blue",
+      "horizon_v": 0.056140373141026656,
+      "projected_sphere_centers": [
+        {
+          "material_id": 1,
+          "center_u": 0.39153237512170297,
+          "center_v": 0.47367966491363916
+        },
+        {
+          "material_id": 2,
+          "center_u": 0.5661347134091412,
+          "center_v": 0.5381287820064554
+        },
+        {
+          "material_id": 3,
+          "center_u": 0.5937032717433525,
+          "center_v": 0.5066411324110229
+        }
+      ]
+    },
+    {
+      "variant": "camera",
+      "horizon_v": 0.056140373141026656,
+      "projected_sphere_centers": [
+        {
+          "material_id": 1,
+          "center_u": 0.4042699877296213,
+          "center_v": 0.5393572697948541
+        },
+        {
+          "material_id": 2,
+          "center_u": 0.600805135906108,
+          "center_v": 0.4834949442011386
+        },
+        {
+          "material_id": 3,
+          "center_u": 0.42707953414663075,
+          "center_v": 0.5004007606313542
+        }
+      ]
+    }
+  ],
+  "interpretation": "Image RMSE is an unregistered descriptive check of the camera edit against the previous image and its horizontal flip. It is not a geometry or physical accuracy metric. Original files are unchanged."
+}

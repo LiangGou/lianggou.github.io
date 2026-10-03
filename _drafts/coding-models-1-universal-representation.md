@@ -47,3 +47,60 @@ That's the tradeoff in one image: **pretty is not the same as correct.** Code gi
 Representability is established and control is real. But the harder questions remain: whether code is the *efficient* way for a model to learn spatial understanding, and whether it generalizes without shortcuts. The original author retracted his own earlier warning on exactly this point — next, I'll work through what that retraction does and doesn't settle.
 
 *This is part 1 of a series examining the claims in "After Coding Models." Next: representability vs. learning efficiency.*
+
+## Appendix: code, prompts, and data
+
+Everything below is from the investigation this post is based on. The full source files live in this repo: [rendering probe](https://github.com/LiangGou/lianggou.github.io/blob/main/assets/code/coding-models/coding_render_probe.py) · [comparison renderer](https://github.com/LiangGou/lianggou.github.io/blob/main/assets/code/coding-models/coding_image_comparison.py) · [prompts](https://github.com/LiangGou/lianggou.github.io/blob/main/assets/code/coding-models/coding_image_comparison_prompts.json) · [edit actions](https://github.com/LiangGou/lianggou.github.io/blob/main/assets/code/coding-models/coding_image_comparison_actions.json) · [render logs](https://github.com/LiangGou/lianggou.github.io/blob/main/assets/code/coding-models/coding_image_comparison_render_log.json) · [image-tool logs](https://github.com/LiangGou/lianggou.github.io/blob/main/assets/code/coding-models/coding_image_comparison_image_log.json) · [camera projection checks](https://github.com/LiangGou/lianggou.github.io/blob/main/assets/code/coding-models/coding_image_comparison_validation.json).
+
+To rerun the rendering experiments (Python 3, NumPy installed):
+
+```bash
+python coding_render_probe.py
+python coding_image_comparison.py --variant all
+```
+
+<details>
+<summary><strong>The code-generation brief</strong> (sent to the model; it wrote the renderer)</summary>
+
+```text
+Write a self-contained Python program that produces the scene described below by calculating ray intersections and light transport. Use NumPy and the Python standard library only. Do not call any image-generation model or use downloaded assets, images, textures, meshes, external renderers or raster images. Represent the spheres analytically and compute the checkerboard procedurally. Implement diffuse indirect illumination, a rectangular area light, approximate rough-metal reflection, and glass reflection/refraction with Fresnel behavior and absorption. Save a 640 x 420 RGB PNG. Use 144 samples per pixel, at most 9 path bounces, and random seed 20261003. Print the measured rendering time. Produce the source code, not a drawing made by another image tool.
+
+SCENE
+Create a landscape image of a simple three-sphere scene on an infinite checkerboard floor, with no text or additional objects. Use a right-handed coordinate system with Y pointing up and distances in arbitrary scene units. The floor is at Y=-1. Its alternating warm-gray and cool-dark-gray squares have side length 1.1.
+Place a slightly rough chrome sphere of radius 1 at (-1.35, 0, 0); a clear solid glass sphere of radius 1 at (1.10, 0, 0.15), refractive index 1.5 and a faint cyan tint; and a smaller matte terracotta sphere of radius 0.52 at (0.15, -0.48, -2.0). All three rest on the floor. From the camera, the chrome sphere should appear on the left, the glass sphere on the right and closer, and the smaller terracotta sphere behind them, partly occluded and visible through refraction in the glass.
+Use a perspective camera at (6, 3, 8), aimed at (0, -0.03, -0.25), vertical field of view 37 degrees, aspect ratio 32:21. Light the scene with a large warm rectangular softbox at Y=6, spanning X=-3.5 to 0.5 and Z=-1 to 3, and a pale blue-gray sky. Show the bright softbox reflection, reflected checkerboard, refraction through the glass, soft contact shadows and indirect illumination. Aim for a convincing photograph of physical objects with coherent perspective and material behavior.
+```
+</details>
+
+<details>
+<summary><strong>The direct image-generation prompt</strong> (same scene, sent to the image tool)</summary>
+
+```text
+Generate one image directly from the scene description below. Use only this text; do not use a reference image. Do not return code. Aim for a convincing photograph while preserving the specified object count, relative placement, materials, lighting and camera. Requested landscape aspect ratio: 32:21. No labels, text or watermark.
+
+SCENE
+Create a landscape image of a simple three-sphere scene on an infinite checkerboard floor, with no text or additional objects. Use a right-handed coordinate system with Y pointing up and distances in arbitrary scene units. The floor is at Y=-1. Its alternating warm-gray and cool-dark-gray squares have side length 1.1.
+Place a slightly rough chrome sphere of radius 1 at (-1.35, 0, 0); a clear solid glass sphere of radius 1 at (1.10, 0, 0.15), refractive index 1.5 and a faint cyan tint; and a smaller matte terracotta sphere of radius 0.52 at (0.15, -0.48, -2.0). All three rest on the floor. From the camera, the chrome sphere should appear on the left, the glass sphere on the right and closer, and the smaller terracotta sphere behind them, partly occluded and visible through refraction in the glass.
+Use a perspective camera at (6, 3, 8), aimed at (0, -0.03, -0.25), vertical field of view 37 degrees, aspect ratio 32:21. Light the scene with a large warm rectangular softbox at Y=6, spanning X=-3.5 to 0.5 and Z=-1 to 3, and a pale blue-gray sky. Show the bright softbox reflection, reflected checkerboard, refraction through the glass, soft contact shadows and indirect illumination. Aim for a convincing photograph of physical objects with coherent perspective and material behavior.
+```
+</details>
+
+<details>
+<summary><strong>Edit 1 — recolor the small sphere</strong></summary>
+
+```text
+Change only the smaller matte terracotta sphere to saturated matte blue. Keep the chrome and glass spheres, their positions and sizes, the checkerboard, camera, crop and lighting unchanged. Update reflections and refraction where this material change physically affects them. Add no objects.
+```
+
+In the program this changed the small sphere's diffuse albedo from `[0.56, 0.13, 0.055]` to `[0.035, 0.15, 0.65]`; everything else stayed fixed and the renderer recomputed the image.
+</details>
+
+<details>
+<summary><strong>Edit 2 — move the camera, keep the world fixed</strong></summary>
+
+```text
+Starting from the blue-sphere scene, move the perspective camera from (6, 3, 8) to (-6, 3, 8). Keep its target (0, -0.03, -0.25), vertical field of view 37 degrees and aspect ratio 32:21. Keep all sphere centers, radii, materials, the floor and light fixed in world coordinates. Render the new viewpoint with the resulting changes in overlap, visibility, reflections and refraction. Do not mirror the old image or redesign the scene. No additional objects or text.
+```
+
+Projecting the sphere centers through the new camera puts chrome at 40.4% and glass at 60.1% of image width from the left — chrome stays left of glass. The code output matches; the generated image reverses them.
+</details>

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-03",
+  "image_backend": "Not exposed by the image generation tool",
+  "initial_input": "Text only; no reference image",
+  "edit_inputs": "Previous image plus corresponding action prompt",
+  "one_output_per_request": true,
+  "image_tool_call_wall_seconds": {
+    "base": 30.352,
+    "blue": 28.159,
+    "camera": 30.072
+  },
+  "timing_interpretation": "These are observed end-to-end tool-call durations, not isolated inference timings. CPU code-rendering durations exclude code authoring. Compute, resolution and backend are unmatched, so timings are not a speed or cost benchmark."
+}
