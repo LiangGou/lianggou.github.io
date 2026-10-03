@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Is Code the Universal Representation?"
+title: "Is Code the Universal Representation? Part One"
 description: "A provocative post claims coding models can generate anything — images, video, 3D worlds — and asks whether code is the optimal universal representation. I checked the claims and ran the experiments. Part 1: yes, code can render an image with no diffusion model at all."
 ---
 
