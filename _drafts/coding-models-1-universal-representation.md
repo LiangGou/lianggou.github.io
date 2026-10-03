@@ -8,9 +8,7 @@ description: "A provocative post claims coding models can generate anything — 
 
 I came across a thought-provoking post — "After Coding Models," eleven images, dense with claims. The core observation is hard to argue with: today's strongest coding models don't just write software. They generate images, animations, 3D scenes, and interactive environments by writing executable programs. Then comes the big question: **is code the optimal universal representation?** Can you express anything — a photograph, a video, a world — as a program?
 
-One camp says yes: code can do anything, so the future belongs to models that write code. The other camp says this confuses expressing something with understanding it — that a program rendering a scene doesn't mean the model grasps the world the way a native visual model might.
-
-It got me curious, so I spent some time checking the claims that can be checked, and running small experiments where I could. This is the first of a short series working through them one at a time — mostly to organize my own thinking, and in case it's useful to others.
+The question the post poses stuck with me: if code can express images, video, 3D scenes — is it the optimal universal representation? It's a seductive idea. But there's a gap between expressing something and understanding it: a program that renders a room doesn't necessarily grasp the room the way a model trained on a million rooms might. I wanted to see how much of the claim survives contact with evidence. This is the first of a short series working through them one at a time — mostly to organize my own thinking, and in case it's useful to others.
 
 ## Claim 1: code can produce an image with no diffusion model
 
