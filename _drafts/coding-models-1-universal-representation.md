@@ -29,8 +29,21 @@ There's a deeper point the experiment makes visible: the renderer can't invent w
 
 So the first claim holds up, within its boundaries: **code can express a scene and render it without any learned image model.** Representability is established. But representability is the easy question. The hard ones — whether code is the *efficient* way for a model to learn spatial understanding, and whether it generalizes without shortcuts — need different evidence. To the original author's credit, he retracted his own earlier warning on exactly this point, and I'll take that up in a later installment.
 
+## Control vs. photorealism
+
+The more revealing test, to me, was a head-to-head: the same scene description, given two ways. Once as a coding brief — write a program that renders this scene. Once as a plain image prompt — just generate the picture. Then two follow-up edits applied to each: turn the small sphere blue, and move the camera to the other side.
+
+![Left: scene rendered from model-written code across three steps. Right: direct image generation and edits from the same brief.](/assets/images/coding-image-comparison.png)
+*Same brief, two routes, two edits. The third row is the telling one: after the camera move, the code route keeps the chrome sphere on the left; the generated image flips the scene.*
+
+The base images tell one story: the generated one looks more photographic — textured floor tiles, an outdoor world reflected in the chrome — while the code output looks like simple CGI. The learned image model fills in rich appearance from its training; the program only knows what it was told.
+
+The blue-sphere edit went fine on both sides. But the camera move is where it gets interesting. Moving the camera from one side to the other should keep the chrome sphere on the left and the glass on the right — I verified this by projecting the actual 3D coordinates through the new camera. The code route does exactly that: same world, new viewpoint, occlusion updates correctly. The generated image, meanwhile, produces a plausible-looking new picture with the spheres *reversed* — glass on the left, chrome on the right. It looks convincing. It's just wrong.
+
+That's the tradeoff in one image: **pretty is not the same as correct.** Code gives you an inspectable scene — named parameters for every object, light, and camera angle that you can check and constrain. Direct generation gives you a beautiful picture with no guarantees about the world behind it. For anything where the geometry matters — and in the physical world, it always does — that inspectability is worth more than photorealism.
+
 ## What's next
 
-The most revealing experiment compared the two routes head-to-head: same scene brief, one rendered from model-written code, one generated directly as an image — then two edits applied to each. The image route looks more photographic. But when I asked both to move the camera, the generated image quietly *reversed* the left-right order of the objects, while the code route kept the geometry honest. Attractive synthesis versus controllable state — that's part 2.
+Representability is established and control is real. But the harder questions remain: whether code is the *efficient* way for a model to learn spatial understanding, and whether it generalizes without shortcuts. The original author retracted his own earlier warning on exactly this point — next, I'll work through what that retraction does and doesn't settle.
 
-*This is part 1 of a series examining the claims in "After Coding Models." Next: control vs. photorealism — what the camera experiment revealed.*
+*This is part 1 of a series examining the claims in "After Coding Models." Next: representability vs. learning efficiency.*
