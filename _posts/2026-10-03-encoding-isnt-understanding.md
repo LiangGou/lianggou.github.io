@@ -1,12 +1,12 @@
 ---
 layout: single
 title: "Encoding Isn't Understanding? Part Two"
-description: "The original author once warned that squeezing a 4D world through a 1D representation could only produce stochastic parrots — then retracted it. He was right to retract, but the deeper question survives: encoding something is not the same as learning it efficiently."
+description: "The original author once warned that squeezing a 4D world through a 1D representation could only produce stochastic parrots. That claim didn't hold up — but the deeper question survives: encoding something is not the same as learning it efficiently."
 ---
 
 *Part Two of a series inspired by "Coding Models之后" (After Coding Models) by Hokin的学术笔记 (Hokin's Academic Notes) — [original post](http://xhslink.com/o/9IpvfyZmy1Q). [1] [Part One](/2026/10/03/is-code-the-universal-representation.html) covered rendering and control.*
 
-The most intellectually honest moment in the original post is a retraction. The author admits he used to argue, quite vocally, that expressing a four-dimensional world through a one-dimensional representation could only produce "stochastic parrots" and shortcuts — fluent mimics with no real understanding. He now says that judgment was wrong. I want to give him credit for that, because retracting in public is rare, and because the retraction itself opens the more interesting question: **what exactly was wrong with the original claim, and what survives of the worry behind it?**
+The original post made a bold claim: that expressing a four-dimensional world through a one-dimensional representation could only produce "stochastic parrots" — fluent mimics with no real understanding. That claim didn't hold up. But rather than relitigate who was right, the more interesting question is: **what exactly was wrong with the original claim, and what survives of the worry behind it?**
 
 ## Why the worry felt reasonable
 
