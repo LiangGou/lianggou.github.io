@@ -50,7 +50,7 @@ Second, when a coding model "builds a 3D scene," notice where the work actually 
 
 And third, the combinations are where the real progress is. An LLM plans a scene layout in boxes, and a diffusion model fills it in following that layout. [4] A 2D image prior guides the optimization of a 3D scene. [5] Robot programs compose perception outputs with control APIs. [6] In each case the capability belongs to the complete system — no single component gets to claim the win.
 
-There's a sharper version of this composition idea making the rounds in robotics: real to sim to real. [7] You learn the real distribution from real scenes, use it to generate the descriptors — layouts, materials, lighting — that drive simulation, then simulate at scale: scenarios you'd never collect by hand. That synthetic data feeds back into training, and the next round of models handles the real world better. It's the same pattern as above, closed into a loop: the renderer keeps the geometry honest, the learned distribution keeps the appearance real, and each pass makes the other more faithful.
+There's a sharper version of this composition idea making the rounds in robotics: real to sim to real. You learn the real distribution from real scenes, use it to generate the descriptors — layouts, materials, lighting — that drive simulation, then simulate at scale: scenarios you'd never collect by hand. That synthetic data feeds back into training, and the next round of models handles the real world better. It's the same pattern as above, closed into a loop: the renderer keeps the geometry honest, the learned distribution keeps the appearance real, and each pass makes the other more faithful.
 
 So maybe the right question isn't which representation wins. It's which combination of representations, learned models, tools, and feedback delivers reliable performance under a task's constraints — and being honest about which component did which part of the work.
 
@@ -69,5 +69,3 @@ So maybe the right question isn't which representation wins. It's which combinat
 [5] Poole, B., Jain, A., Barron, J. T., & Mildenhall, B. (2022). DreamFusion: Text-to-3D using 2D Diffusion. [arXiv:2209.14988](https://arxiv.org/abs/2209.14988).
 
 [6] Liang, J., et al. (2023). Code as Policies: Language Model Programs for Embodied Control. ICRA. [arXiv:2209.07753](https://arxiv.org/abs/2209.07753).
-
-[7] 笨笨长不大. (2026). GPT6 Astra给Robotics领域带来的2个方向 [Two directions GPT-6 Astra brings to robotics]. Xiaohongshu post. https://www.xiaohongshu.com/explore/6ab04745000000000f03a800
