@@ -41,3 +41,5 @@ Here's what the future needs: **a local vault.** I put my sensitive information 
 ## The quiet arrival
 
 Maybe AGI doesn't arrive with a press release. It arrives on a Saturday morning when you realize the car drives better than you do, and on the evening a visa package assembles itself while you have dinner. It arrives quietly, domain by domain — and the shocking part is how fast "impossible" becomes "of course."
+
+So here's my opinion, stated without hedging: the age of AGI has already come. It didn't arrive with a press release, or a single model that does everything — it arrived quietly, domain by domain. First the car drove better than I do. Then an assistant planned a family trip better than I could. Each moment felt small on its own; together, they've already redrawn the baseline. We keep waiting for the announcement, but the announcement already happened — we lived through it instead of reading about it.
