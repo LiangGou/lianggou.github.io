@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "It's Shocking — I Feel AGI Is Already Here"
+title: "The Age of AGI Has Already Arrived"
 description: "Two recent experiences — a near-miss on the road and a trip planned with AI — convinced me AGI has quietly arrived."
 ---
 
