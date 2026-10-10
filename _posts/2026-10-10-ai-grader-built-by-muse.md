@@ -37,7 +37,7 @@ Then came the coding phase, and this is where my role changed completely. I stop
 
 Five days after the first conversation, the app was in production, open-sourced under MIT, and my wife was looking at her first AI-graded class.
 
-One number worth sharing: the whole thing took about a week, from the idea — which came up in a conversation with a couple of friends last week — to production. Every evening after work I spent roughly an hour talking to Muse. My actual hands-on time, reading, deciding, and testing on my phone, added up to less than five hours.
+One number worth sharing: the whole thing took about a week, from the idea — which came up in a conversation with a couple of friends last week — to production. Every evening after work I spent roughly an hour talking to Muse: describing what I wanted, reviewing what came back, pointing at problems. That talking time added up to around five hours total. I never touched the code — not once.
 
 ## Lessons learned
 
