@@ -4,7 +4,10 @@ title: "My AI Employee Is Called Muse: Building an AI Grader with Zero Code"
 description: "My wife spends 3–5 hours a week hand-grading 100+ math papers. I built her an AI grader — and wrote zero code doing it. Design, implementation, testing, deployment: all done by my AI employee. Here's the full story."
 ---
 
-**Try it right now:** the app is live at [ai-grader-shwa.onrender.com](https://ai-grader-shwa.onrender.com), the code is open source at [github.com/LiangGou/ai-grader](https://github.com/LiangGou/ai-grader). There is a public demo account — username `public`, password `public` — with its own isolated sandbox, so you can click through the whole thing without touching anyone's data.
+**Try it right now:**
+- the app is live at [ai-grader-shwa.onrender.com](https://ai-grader-shwa.onrender.com)
+- the code is open source at [github.com/LiangGou/ai-grader](https://github.com/LiangGou/ai-grader)
+- there is a public demo account — username `public`, password `public` — with its own isolated sandbox, so you can click through the whole thing without touching anyone's data
 
 ## Background
 
