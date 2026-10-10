@@ -13,8 +13,6 @@ description: "My wife spends 3–5 hours a week hand-grading 100+ math papers. I
 
 My wife is a high school math teacher. Every week she gives a test, and every week she grades more than a hundred papers. The process is entirely manual: she writes the rubric, works through each paper against it, tallies the scores, then types every score into the school's system. One weekly test costs her three to five hours of grading.
 
-## Motivation
-
 The thought that kept nagging me: AI can already do every step of this. Vision models can read handwritten math. They are good at math. They can draft a rubric, verify a solution step by step, and assign partial credit consistently — arguably more consistently than a tired human at 11pm. So I decided to build her an AI grader, with my wife as customer zero.
 
 And I gave myself one constraint, as an experiment: **I would not write any code.** No editor, no terminal commands typed by me, no "let me just fix this one line." From the first design conversation to the production deployment, everything would go through my AI assistant, Muse. I wanted to find out what that process actually feels like — where it shines, where it breaks, and what my job becomes when I'm not the one typing.
