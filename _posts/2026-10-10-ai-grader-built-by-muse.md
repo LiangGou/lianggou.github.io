@@ -37,6 +37,8 @@ Then came the coding phase, and this is where my role changed completely. I stop
 
 Five days after the first conversation, the app was in production, open-sourced under MIT, and my wife was looking at her first AI-graded class.
 
+One number worth sharing: the whole thing took about a week, from the idea — which came up in a conversation with a couple of friends last week — to production. Every evening after work I spent roughly an hour talking to Muse. My actual hands-on time, reading, deciding, and testing on my phone, added up to less than five hours.
+
 ## Lessons learned
 
 **The agent is a project manager, not a code generator.** The popular image is "AI writes code fast." What actually happened: it managed the whole loop — broke work into steps, wrote the tests, ran them, got the reviews, deployed, verified in production, and reported back with a commit hash. Code was just one artifact among many.
