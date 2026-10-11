@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "My personal AI Employee Is Called Muse: Building an AI Grader with Zero Code"
+title: "My Personal AI Employee Is Called Muse: Building an AI Grader with Zero Code"
 description: "My wife spends 3–5 hours a week hand-grading 100+ math papers. I built her an AI grader — and wrote zero code doing it. Design, implementation, testing, deployment: all done by my AI employee. Here's the full story."
 ---
 
