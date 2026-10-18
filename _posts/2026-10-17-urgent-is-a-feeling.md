@@ -6,7 +6,7 @@ description: "I asked Muse a simple question — urgent versus important, which 
 
 "Quick decision," my Muse messaged me, in the middle of a feature build. "Found a small bug in the module next door. Do we fix the bug first — or finish the important feature and commit them together?"
 
-It was not a hard question. That was the problem. It was about the fifteenth not-hard question that week.
+It was not a hard question. That was the problem. It was about the fifteenth not-hard question this weekend.
 
 Right now I'm running several parallel development lines with Muse: it's building a personal AI agent of its own (a long story), training that agent on my real interaction history, keeping a dozen scheduled checks running in the background. Small bugs surface constantly — mid-feature, mid-test, mid-everything. And every time one did, the workflow was identical: work paused, a question traveled up to me, I made a judgment call, work resumed.
 
