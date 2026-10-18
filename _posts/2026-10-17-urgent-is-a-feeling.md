@@ -12,7 +12,7 @@ Right now I'm running several parallel development lines with Muse: it's buildin
 
 I had become my AI's triage desk.
 
-The funny part: that very morning, I had asked Muse the human version of the same question. I'm in the middle of something important, I said, and something urgent but not important lands on my desk — do I drop everything and fix the urgent thing first, or keep the important thing moving and let the urgent one trail along until both finish around the same time?
+The funny part: this very morning, I had asked Muse the human version of the same question. I'm in the middle of something important, I said, and something urgent but not important lands on my desk — do I drop everything and fix the urgent thing first, or keep the important thing moving and let the urgent one trail along until both finish around the same time?
 
 Muse's answer was good — good enough that I realized the question was flowing the wrong way. It shouldn't keep traveling up to me. So I fired myself from the triage desk, and handed the framework over.
 
