@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Tesla authorization callback</title></head>
+<body style="font-family: sans-serif; margin: 2em;">
+<h1>Tesla authorization</h1>
+<p id="msg">Reading authorization result...</p>
+<script>
+const p = new URLSearchParams(location.search);
+const code = p.get('code'), state = p.get('state'), err = p.get('error');
+const m = document.getElementById('msg');
+if (err) { m.textContent = 'Authorization failed: ' + err; }
+else if (code) { m.innerHTML = 'Authorization code received. Return to Muse to finish setup.<br><br><code style="font-size:20px">' + code + '</code>' + (state ? '<br>State: ' + state : ''); }
+else { m.textContent = 'No authorization code in this URL.'; }
+</script>
+</body></html>
