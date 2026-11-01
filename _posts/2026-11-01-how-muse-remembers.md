@@ -17,7 +17,7 @@ An agent needs the same two organs, and each is a design surface: a curated, cor
 
 So I read its memory design the way I would read a spec — and then, rather than trust the description, rebuilt the mechanisms in a Muse-like agent of my own, to watch how they actually behave.
 
-**Part 1 · The mechanism**
+<p style="font-size:1.35em; font-weight:700; margin:1.2em 0 0.3em;">Part 1 · The mechanism</p>
 
 ## Memory is files
 
@@ -49,8 +49,6 @@ How it moves comes down to two paths — one for writing, one for reading — an
 
 Two frictions deserve to be stated plainly, because every builder will meet them. Search indexes lag file writes, so *not found* does not mean *not saved* — a memory written a minute ago may be invisible to search while sitting plainly on disk. And the injected context is partial: the heads of the indexes, not the whole of them; a core file, not every file. The biography the agent carries into a conversation is real. It is not the whole book.
 
-**Part 1 · The mechanism**
-
 ## The dream may reflect, but it may not remember
 
 Every night, the system runs one reflection pass over a bounded window of recent conversation. Bounded is doing real work in that sentence: the pass is hard-capped on input and output, runs once, and produces a fixed set of artifacts.
@@ -75,7 +73,7 @@ The design decision that matters most is not what the dream produces. It is what
 
 All of the above is the design as written — and the skeptical reading deserves its moment: *a system prompt is a spec, not a behavior.* Designs say many things that running systems quietly fail to do. That objection is correct, and it is exactly why I rebuilt the same mechanisms in my own Muse-like agent, to watch them behave — where the spec survived contact with a scheduler, a token budget, and a production database, and where it did not. The extensions that rebuilding produced are Part 2; the breakage is Part 3.
 
-**Part 2 · Extensions**
+<p style="font-size:1.35em; font-weight:700; margin:1.2em 0 0.3em;">Part 2 · Extensions</p>
 
 ## What I'm building on top
 
@@ -100,7 +98,7 @@ Rebuilding the mechanism in my own Muse-like agent, I kept the shape — files, 
 **Why the base was not enough:** Provenance that can only be reached by an internal id is provenance a reader cannot use — the artifact a person actually holds is a line in a file, and asking “why is this line here?” took a detour through search first.
 **Added:** Explain now accepts line citations — `MEMORY.md#L<n>`, `memory/<date>.md#L<n>` — and resolves them through the same claim index to the same provenance record as id addressing: no nearest-claim guessing, and an honest not-found when the line carries no claim.
 
-**Part 3 · Lessons**
+<p style="font-size:1.35em; font-weight:700; margin:1.2em 0 0.3em;">Part 3 · Lessons</p>
 
 ## What broke, and what it taught me
 
