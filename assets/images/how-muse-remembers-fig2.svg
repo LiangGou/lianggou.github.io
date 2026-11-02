@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 620" font-family="Georgia, 'Times New Roman', serif">
+  <rect x="0" y="0" width="1080" height="620" fill="#FFFFFF"/>
+
+  <!-- Column A: input + the pass -->
+  <rect x="20" y="24" width="300" height="118" rx="10" fill="#F3F4F9" stroke="#1F2A4D" stroke-width="1.5"/>
+  <text x="170" y="56" text-anchor="middle" font-size="17" fill="#1F2A4D" font-weight="bold">A bounded window</text>
+  <text x="170" y="80" text-anchor="middle" font-size="17" fill="#1F2A4D" font-weight="bold">of recent conversation</text>
+  <text x="170" y="108" text-anchor="middle" font-size="13.5" fill="#4B3FB0">window · user turns · rupture turns</text>
+  <text x="170" y="128" text-anchor="middle" font-size="13.5" fill="#4B3FB0">correction-free rate</text>
+
+  <rect x="20" y="196" width="300" height="118" rx="10" fill="#F3F4F9" stroke="#1F2A4D" stroke-width="1.5"/>
+  <text x="170" y="232" text-anchor="middle" font-size="18" fill="#1F2A4D" font-weight="bold">The alignment objective</text>
+  <text x="170" y="260" text-anchor="middle" font-size="14" fill="#1F2A4D">one scheduled reflection pass,</text>
+  <text x="170" y="282" text-anchor="middle" font-size="14" fill="#1F2A4D">one to three times a day</text>
+
+  <line x1="170" y1="142" x2="170" y2="188" stroke="#1F2A4D" stroke-width="2"/>
+  <polygon points="162,186 178,186 170,198" fill="#1F2A4D"/>
+
+  <!-- Column B: one night's dream -->
+  <rect x="392" y="24" width="330" height="290" rx="10" fill="#FBF6EA" stroke="#B08020" stroke-width="2"/>
+  <text x="557" y="58" text-anchor="middle" font-size="18" fill="#1F2A4D" font-weight="bold">One night's dream</text>
+  <text x="557" y="82" text-anchor="middle" font-size="13" fill="#B08020">dreams/YYYY-MM-DD.md</text>
+  <rect x="412" y="98" width="290" height="40" rx="6" fill="#FFFFFF" stroke="#B08020" stroke-width="1"/>
+  <text x="557" y="123" text-anchor="middle" font-size="13.5" fill="#1F2A4D">Telemetry header — the pass measures its input</text>
+  <rect x="412" y="150" width="290" height="44" rx="6" fill="#FFFFFF" stroke="#B08020" stroke-width="1"/>
+  <text x="557" y="178" text-anchor="middle" font-size="15" fill="#1F2A4D">Who the user is</text>
+  <rect x="412" y="206" width="290" height="44" rx="6" fill="#FFFFFF" stroke="#B08020" stroke-width="1"/>
+  <text x="557" y="234" text-anchor="middle" font-size="15" fill="#1F2A4D">What is alive</text>
+  <rect x="412" y="262" width="290" height="44" rx="6" fill="#FFFFFF" stroke="#B08020" stroke-width="1"/>
+  <text x="557" y="290" text-anchor="middle" font-size="15" fill="#1F2A4D">Where the agent fell short</text>
+
+  <line x1="320" y1="255" x2="384" y2="255" stroke="#1F2A4D" stroke-width="2"/>
+  <polygon points="382,247 382,263 394,255" fill="#1F2A4D"/>
+
+  <!-- Column C: the other four products -->
+  <text x="892" y="46" text-anchor="middle" font-size="15" fill="#1F2A4D" font-weight="bold">THE OTHER FOUR PRODUCTS</text>
+  <rect x="742" y="60" width="300" height="56" rx="8" fill="#FBF6EA" stroke="#B08020" stroke-width="1.5"/>
+  <text x="892" y="86" text-anchor="middle" font-size="15.5" fill="#1F2A4D" font-weight="bold">Alignment state</text>
+  <text x="892" y="106" text-anchor="middle" font-size="12.5" fill="#1F2A4D">the model, structured</text>
+  <rect x="742" y="128" width="300" height="56" rx="8" fill="#FBF6EA" stroke="#B08020" stroke-width="1.5"/>
+  <text x="892" y="154" text-anchor="middle" font-size="15.5" fill="#1F2A4D" font-weight="bold">Repair threads</text>
+  <text x="892" y="174" text-anchor="middle" font-size="12.5" fill="#1F2A4D">content-free: a label, message ids</text>
+  <rect x="742" y="196" width="300" height="56" rx="8" fill="#FBF6EA" stroke="#B08020" stroke-width="1.5"/>
+  <text x="892" y="222" text-anchor="middle" font-size="15.5" fill="#1F2A4D" font-weight="bold">Progression history</text>
+  <text x="892" y="242" text-anchor="middle" font-size="12.5" fill="#1F2A4D">scored: helped / insufficient</text>
+  <rect x="742" y="264" width="300" height="56" rx="8" fill="#FBF6EA" stroke="#B08020" stroke-width="1.5"/>
+  <text x="892" y="290" text-anchor="middle" font-size="15.5" fill="#1F2A4D" font-weight="bold">Alignment synthesis</text>
+  <text x="892" y="310" text-anchor="middle" font-size="12.5" fill="#1F2A4D">the standing distillation</text>
+
+  <line x1="722" y1="180" x2="734" y2="180" stroke="#B08020" stroke-width="2"/>
+  <polygon points="732,172 732,188 744,180" fill="#B08020"/>
+
+  <!-- Bottom band: return channels -->
+  <text x="540" y="338" text-anchor="middle" font-size="15" fill="#1F2A4D" font-weight="bold">HOW THE DREAM GETS BACK INTO THE ROOM</text>
+
+  <rect x="20" y="388" width="240" height="64" rx="8" fill="#FFFFFF" stroke="#4F8F92" stroke-width="2.5"/>
+  <text x="140" y="416" text-anchor="middle" font-size="15" fill="#1F2A4D" font-weight="bold">Wholesale injection</text>
+  <text x="140" y="438" text-anchor="middle" font-size="12.5" fill="#1F2A4D">synthesis as standing guidance</text>
+
+  <rect x="287" y="388" width="240" height="64" rx="8" fill="#FFFFFF" stroke="#B85C33" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="407" y="416" text-anchor="middle" font-size="15" fill="#1F2A4D" font-weight="bold">Retrieval</text>
+  <text x="407" y="438" text-anchor="middle" font-size="12.5" fill="#B85C33">via search — no label</text>
+
+  <rect x="554" y="388" width="240" height="64" rx="8" fill="#FFFFFF" stroke="#1F2A4D" stroke-width="1.5"/>
+  <text x="674" y="416" text-anchor="middle" font-size="15" fill="#1F2A4D" font-weight="bold">Proactivity</text>
+  <text x="674" y="438" text-anchor="middle" font-size="12.5" fill="#1F2A4D">handoffs, nudges, briefings</text>
+
+  <rect x="821" y="388" width="240" height="64" rx="8" fill="#FFFFFF" stroke="#B85C33" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="941" y="416" text-anchor="middle" font-size="15" fill="#1F2A4D" font-weight="bold">Promotion</text>
+  <text x="941" y="438" text-anchor="middle" font-size="12.5" fill="#B85C33">unlocked — unused so far</text>
+
+  <line x1="557" y1="314" x2="557" y2="356" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="140" y1="356" x2="941" y2="356" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="140" y1="356" x2="140" y2="380" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="407" y1="356" x2="407" y2="380" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="674" y1="356" x2="674" y2="380" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="941" y1="356" x2="941" y2="380" stroke="#1F2A4D" stroke-width="1.5"/>
+  <polygon points="133,378 147,378 140,388" fill="#1F2A4D"/>
+  <polygon points="400,378 414,378 407,388" fill="#1F2A4D"/>
+  <polygon points="667,378 681,378 674,388" fill="#1F2A4D"/>
+  <polygon points="934,378 948,378 941,388" fill="#1F2A4D"/>
+
+  <line x1="140" y1="452" x2="140" y2="478" stroke="#4F8F92" stroke-width="2.5"/>
+  <line x1="407" y1="452" x2="407" y2="478" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="674" y1="452" x2="674" y2="478" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="941" y1="452" x2="941" y2="478" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="140" y1="478" x2="941" y2="478" stroke="#1F2A4D" stroke-width="1.5"/>
+  <line x1="540" y1="478" x2="540" y2="500" stroke="#1F2A4D" stroke-width="2"/>
+  <polygon points="532,498 548,498 540,510" fill="#1F2A4D"/>
+
+  <rect x="290" y="510" width="500" height="56" rx="10" fill="#F3F4F9" stroke="#4B3FB0" stroke-width="2"/>
+  <text x="540" y="545" text-anchor="middle" font-size="19" fill="#1F2A4D" font-weight="bold">Every conversation</text>
+
+  <!-- Legend -->
+  <rect x="20" y="512" width="14" height="14" fill="#FBF6EA" stroke="#B08020"/>
+  <text x="40" y="524" font-size="12.5" fill="#1F2A4D">dream products</text>
+  <rect x="20" y="534" width="14" height="14" fill="#F3F4F9" stroke="#4B3FB0"/>
+  <text x="40" y="546" font-size="12.5" fill="#1F2A4D">record / context</text>
+  <line x1="20" y1="564" x2="34" y2="564" stroke="#B85C33" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="40" y="568" font-size="12.5" fill="#1F2A4D">unlabeled / unguarded path</text>
+</svg>
