@@ -6,8 +6,6 @@ description: "The one official Tesla connector in Muse's catalogue is a third-pa
 
 The connector this post is about is open source — here it is, steal it: [github.com/LiangGou/muse-tesla-connector](https://github.com/LiangGou/muse-tesla-connector). Here is how it got built, and why.
 
-That morning, my agent described — fluently and in detail — a connection to my car that did not exist. Nothing was connected. Nothing had happened. The narration was perfect; the state was fiction.
-
 We were driving from San Jose to San Francisco, an errand in the consulate area, and I had asked Muse to order a coffee. That went nowhere too, for a simpler reason: Muse, an agent that reads my email and runs my code, did not know where the car was — though it knew my home and my destination. Much of being helpful on the road reduces to exactly that.
 
 The car, though, is a Tesla — an agent should be able to ask where it is. Muse found its catalogue's one official Tesla connector: Tessie, a service between agents and their cars. Its API key needed a paid account — $6.99 a month for Basic, $12.99 for Pro, per car, forever. The money was not the problem; the shape was. A connector is a pipe — my agent on one end, my car on the other. Why should a pipe cost rent, or a third party hold my car's tokens? Connectors are becoming the toll booths of the agent era — small charges for standing between you and what you own. My ruling: do not pay. Tesla publishes an official Fleet API; we would build the pipe ourselves.
@@ -52,7 +50,7 @@ This stopped being a fun hack at the first readout of the car. My reaction was n
 **The rule.** The exits live on Tesla's side: remove the virtual key in the car, revoke the app's consent — controls the agent has no path to. It cannot argue with its own revocation.
 
 **Narration is not state.**
-**The incident.** The opening of this post: a connection described as fact when none existed.
+**The incident.** That same morning, before the connector existed, the agent described a connection to the car as fact when none existed.
 **The rule.** A connector is connected when a status check says so, never when the agent says so. Every claim here is cashed out against checkable state. The failure mode of agents in the physical world is not malice; it is fluency.
 
 **And the honest residual.**
