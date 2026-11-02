@@ -25,7 +25,7 @@ The connector is deliberately small; the smallness is the design. No cloud servi
 - **Reads are one call; navigation is two, and the second is gated.** Destinations are split: *prepare* shows the exact resolved text; only after I confirm does *send* fire, with a one-time token and a duplicate guard. The confirmation is not a courtesy; it is the mechanism.
 
 ![Figure 1: Tesla connector architecture and confirmation gate](/assets/images/tesla-connector-safety-diagram.png)
-*Figure 1 | Everything inside the dashed boundary runs on my machine; Tesla's Fleet API and the car sit outside. The safety is in the shape — **the broker cannot express any actuation beyond wake and navigation**, the key's private half never leaves the store, and the only road to the car passes through the amber gate: my confirmation of the exact text, consumed once.*
+*Figure 1 | Everything inside the dashed boundary runs on my machine; Tesla's Fleet API and the car sit outside. The safety is in the shape — **the broker cannot express any actuation beyond wake and navigation**, the key's private half never leaves the store, and the only road to the car passes through the gate: my confirmation of the exact text, consumed once.*
 
 <p style="font-size:1.35em; font-weight:700; margin:1.2em 0 0.3em;">Part 2 · The safety argument</p>
 
