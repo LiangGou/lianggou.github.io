@@ -51,35 +51,27 @@ Two frictions deserve to be stated plainly, because every builder will meet them
 
 ## The dream may reflect, but it may not remember
 
-Start with the word itself, because the design leans on it. A **dream**, in Muse, is the agent's offline self-review: one to three times a day, a background objective named *alignment* re-reads a bounded window of recent conversation — not to answer anyone, but to update the agent's model of the relationship it is in. Who is this person. What is alive between us. Where did I fall short. If memory is the record, the dream is the agent reading its own record and deciding what kind of agent to be tomorrow.
+Every night, the system runs one reflection pass over a bounded window of recent conversation. Bounded is doing real work in that sentence: the pass is hard-capped on input and output, runs once, and produces a fixed set of artifacts.
 
-One night's dream is a dated file with two layers. Its header is telemetry: the window covered, the user turns in it, the *rupture turns* among them (moments the user pushed back or corrected the agent), the correction-free rate, the repair threads left open. The pass measures its own input before it interprets it. Below the header, the narrative runs in three movements:
+- **Dream narratives.** Dated narratives from the night's reflection.
+- **Repair threads.** Where the reflection notices something unfinished or inconsistent.
+- **A progression record.** The dream's own running record, kept night over night.
+- **Synthesis updates.** Updates toward the alignment synthesis.
 
-- **Who the user is.** The pass's current reading of the person's character, standards, and working style — stated as interpretation, with its confidence showing.
-- **What is alive.** The open threads of the work and the relationship: what shipped, what is stuck, which decisions wait on the user and on no one else.
-- **Where the agent fell short.** The specific miss, the standard it violated, and tomorrow's first moves — a running account of its own failures, in prose, addressed to itself.
+Those products reach the world through exactly two fenced readers: an excerpt inside the dream-context block, and a digest view on the memory card.
 
-![Figure 2: one scheduled pass turns a bounded window of conversation into five dream products, and the products re-enter every conversation through four channels](/assets/images/how-muse-remembers-fig2.png)
-*Figure 2 | One scheduled pass turns a bounded window of conversation into five dream products, and the synthesis re-enters every conversation as standing guidance. Nothing in the loop carries an authority label; the fences are the rebuild's, in Part 2.*
+![Figure 2: the nightly dream pipeline, its two fenced readers, and the one narrow channel into long-term memory](/assets/images/how-muse-remembers-fig2.png)
+*Figure 2 | One capped call turns a bounded window into reflection products with exactly two fenced readers. The architecture is the fence: the **only** edge from dreaming into long-term memory is the teal one, carrying claim proposals **bound to a verbatim quote of the user's own words**. The direct edge — a dream quietly becoming a fact — is dashed and crossed because the design forbids it.*
 
-The narrative is one of five products the pass maintains:
+The design decision that matters most is not what the dream produces. It is what the dream is *allowed to be*.
 
-- **The dated dream** — `dreams/YYYY-MM-DD.md`. One file per night: telemetry header, then the three movements.
-- **The alignment state** — `ALIGNMENT_STATE.yaml`. The structured form of the same model: a relationship contract, facets of the user, a working alliance. On my system it sits mostly unconfigured.
-- **Repair threads** — `REPAIR_THREADS.yaml`. Noticed inconsistencies, kept deliberately content-free: a trigger label plus the message ids that ground it, and nothing else.
-- **The progression history** — `PROGRESSION_HISTORY.yaml`. The pass, scored: each run appends its correction-free rate over the eligible evidence and a classification — *helped*, or *insufficient*, too little evidence to judge. The dream is graded on whether the user had to correct the agent less.
-- **The alignment synthesis** — `ALIGNMENT_SYNTHESIS.md`. The standing distillation of all of it: who the user is, their boundaries, the current frictions. The most consequential of the five, because of where it goes next.
+**Stamped as reflection.** Dream content is reflection only. It is stamped as reflection, the stamp travels with the content wherever it is rendered, and reflection is never allowed to compete with verified claims. A dream can notice a pattern, name a tension, propose that something about the user seems to be changing. It cannot, by noticing, make any of that true.
 
-A dream that stayed in its folder would be a diary. This one re-enters the room through four channels:
+**One narrow door.** The one channel from dreaming into durable memory is narrow and structural: the dream may propose claims, but a claim is admitted only when the host can bind it to a verbatim quote of the user's own words — the user's statement is the evidence; the dream merely carried it to the door — and admitted claims come in only three kinds: a fact, a preference, or a commitment. Never a rule. A system that lets its own nighttime reflections legislate its future behavior has built a machine for compounding its own guesses, and this design declines to build it.
 
-- **Wholesale injection.** The synthesis is assembled into every conversation's context as standing guidance, before the first message. The agent does not go looking for the dream's conclusions; it wakes up inside them.
-- **Retrieval.** The dated dreams surface through memory search like any other record — with no label distinguishing a dream passage from one grounded in the transcript.
-- **Proactivity.** The pass emits handoffs into the proactive-delivery pipeline, so dream framing can reach the user as a nudge or a briefing.
-- **Promotion.** Dream interpretation can in principle be promoted into durable memory. In practice the ledger is clean — a census found zero claims sourced from a dream file — but that cleanliness is behavior, not structure: no gate checks a would-be memory against the user's verbatim words. The door is unlocked, and so far nobody has walked through it.
+**Fenced at read time.** The fence holds at read time too: when dream material reaches the model, it arrives inside a fenced context block that labels hypotheses as hypotheses and states the precedence rule out loud — if the user's current message contradicts any line in the block, the user wins.
 
-Now the absence the rest of this essay turns on. No dream artifact carries an authority marking: the header is fifteen fields of telemetry, and *authority* is not one of them; the synthesis wears no label saying *reflection — not instruction, not evidence*. Muse's design trusts its dream — the nightly interpretation steers the agent, unlabeled, and the progression log grades the steering. So read this section's heading as what it actually is: not a description of Muse, but the rule I imposed in my rebuild. The reflection stamp, the fenced readers, the one narrow quote-bound door into memory are the rebuild's, and they are Part 2.
-
-And the standing caveat applies: a system prompt is a spec, not a behavior. I have described the dream as designed, and as I have watched it run on my own system for weeks. Where spec and behavior diverge is why the rebuild exists. The extensions are Part 2; the breakage is Part 3.
+All of the above is the design as written — and the skeptical reading deserves its moment: *a system prompt is a spec, not a behavior.* Designs say many things that running systems quietly fail to do. That objection is correct, and it is exactly why I rebuilt the same mechanisms in my own Muse-like agent, to watch them behave — where the spec survived contact with a scheduler, a token budget, and a production database, and where it did not. The extensions that rebuilding produced are Part 2; the breakage is Part 3.
 
 <p style="font-size:1.35em; font-weight:700; margin:1.2em 0 0.3em;">Part 2 · Extensions</p>
 
