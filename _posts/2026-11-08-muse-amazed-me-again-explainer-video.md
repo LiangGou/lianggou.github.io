@@ -6,16 +6,16 @@ description: "A YouTuber explains P vs NP beautifully. I asked Muse to study his
 
 I gave Muse a master's explainer video and one instruction — *imitate it* — and it studied the video frame by frame, rebuilt the craft, rendered 8,235 frames of working simulations, and packaged the whole process as a reusable open-source skill.
 
-- **Watch the result (4½ minutes):** [the imitation video](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4) — Muse's recreation of the Turing-machine segment, playable right on its GitHub page
+- **Watch the result (4½ minutes):** [the imitation video](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4) — Muse's recreation of the Turing-machine segment from [Manshi's original video](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s), playable right on its GitHub page
 - **Steal the skill pack:** [github.com/LiangGou/simulation-explainer-video](https://github.com/LiangGou/simulation-explainer-video) — the open-source project; drop it into your own agent (Muse, Claude Code, Codex) and make the same kind of video
 
 ## The video I couldn't stop watching
 
-Recently I came across a YouTuber — Manshi (漫士沉思录), a mathematician and theoretical computer scientist — who explains very hard concepts unusually well. The video that hooked me is about P vs NP, the deepest open problem in computer science: what a Turing machine is, why some problems are easy to check but hard to solve, and why that asymmetry might be a law of the universe. Seventy minutes, and I watched like a student.
+Recently I came across a YouTuber — **Manshi （漫士沉思录）**, the channel of Lu Rui （卢睿）, a PhD student in Tsinghua's Yao Class who works on mathematics and theoretical computer science — who explains very hard concepts unusually well. The video that hooked me is [《这可能是人类提出最深刻的数学/计算机问题》](https://www.youtube.com/watch?v=v-jgX-aQ7KM) ("Possibly the deepest question humans have ever posed in mathematics and computer science"), the finale of his series on Turing's theoretical computer science — also on [Bilibili](https://www.bilibili.com/video/BV1Ntxr6xE7Y). It is about P vs NP, the deepest open problem in computer science: what a Turing machine is, why some problems are easy to check but hard to solve, and why that asymmetry might be a law of the universe. Seventy minutes, and I watched like a student.
 
-I make explainer notes myself, and I kept wondering how he does it. The animations are not decoration. His Turing machine actually runs — the head moves, the tape rewrites itself, a counter ticks, and the state table lights up in step. The diagram *is* the argument. I assumed a small studio, 3D tools, months of rendering. (He later turned out to spend up to three months per episode, script first. I learned this after what follows.)
+I make explainer notes myself, and I kept wondering how he does it. The animations are not decoration. His Turing machine actually runs — the head moves, the tape rewrites itself, a counter ticks, and the state table lights up in step. The diagram *is* the argument. I assumed a small studio, 3D tools, months of rendering. (By his own public account he spends up to three months on an episode and writes the full script before anything is animated. I learned this after what follows.)
 
-So I asked Muse a question I half expected to fail: can you figure out how he makes this — and could you make one for a new concept, say, how a Transformer works? But first, imitation. Don't invent your own style. Take just the five minutes where he uses a Turing machine to define P and NP, and reproduce the craft.
+So I asked Muse a question I half expected to fail: can you figure out how he makes this — and could you make one for a new concept, say, how a Transformer works? But first, imitation. Don't invent your own style. Take just the five minutes where he uses a Turing machine to define P and NP, and reproduce the craft. Those five minutes are exactly **[24:35–29:40](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s)** of his video — the link jumps straight to where the segment begins, and it is the passage everything below is an imitation of.
 
 ## What Muse did with the video
 
@@ -46,5 +46,15 @@ But notice where that missing 20% sits — and, more importantly, where the pres
 The credit for everything that makes the video good belongs to the original creator, and it is not the rendering. It is knowing which problem is worth five minutes of your life; how to cut it into stages a mind can climb; which metaphor carries which abstraction; when to withhold the definition until the demonstration has earned it. That is taste. That is judgment. Muse cloned the execution faithfully and quickly — but the decomposition it imitated so well was a human's, designed over months, and the quality of my copy is capped by the quality of his original thinking.
 
 I wrote a while ago that taste is the new intelligence. This experiment is the sharpest evidence I have yet: as generation gets cheaper, the human contribution concentrates into exactly the part that cannot be generated — deciding what is worth making, and how it ought to be explained. The machine drew eight thousand frames. The human drew the map.
+
+## Credit and sources
+
+Everything imitated here belongs to **Lu Rui （卢睿） and his channel 漫士沉思录 (Manshi)**. Go watch the original — it is better than the copy, and it is the reason this post exists:
+
+- The original video: [《这可能是人类提出最深刻的数学/计算机问题》 on YouTube](https://www.youtube.com/watch?v=v-jgX-aQ7KM) · [the same video on Bilibili](https://www.bilibili.com/video/BV1Ntxr6xE7Y)
+- The passage imitated in this post: [24:35–29:40, the Turing-machine segment](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s), where he defines P and NP
+- His production facts cited above (up to three months per episode, script written first, no Manim) are from his own public posts and interviews about the channel
+
+Thank you, Manshi — this student learned a lot.
 
 P.S. The ideas and the story are mine; the craft is Muse's.
