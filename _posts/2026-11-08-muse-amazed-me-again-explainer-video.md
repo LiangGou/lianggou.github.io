@@ -9,16 +9,15 @@ For ten years, one of reinforcement learning's cleanest dreams has been a machin
 - **Watch the result (4¾ minutes):** [the side-by-side comparison](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4) — Manshi's original segment on top, Muse's imitation below, aligned shot by shot, playable right on its GitHub page; the imitation on its own is [here](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4)
 - **Steal the skill pack:** [github.com/LiangGou/simulation-explainer-video](https://github.com/LiangGou/simulation-explainer-video) — the open-source project; drop it into your own agent (Muse, Claude Code, Codex) and make the same kind of video
 
+<video controls preload="metadata" playsinline style="width:100%;height:auto;display:block;margin:1.2em 0 0.4em;" src="/assets/videos/comparison-v1.mp4"></video>
+<p style="text-align:center;font-size:0.9em;color:#666;margin-top:0;">Play it right here: Manshi's original (top) vs Muse's imitation (bottom), aligned shot by shot.</p>
+
 ## The demonstration
 
 The demonstration was a video by **Manshi （漫士沉思录）** — Lu Rui （卢睿）, a PhD student in Tsinghua's Yao Class — called [《这可能是人类提出最深刻的数学/计算机问题》](https://www.youtube.com/watch?v=v-jgX-aQ7KM) ("Possibly the deepest question humans have ever posed in mathematics and computer science"; also on [Bilibili](https://www.bilibili.com/video/BV1Ntxr6xE7Y)). [1] In seventy minutes he explains P vs NP, and his animations are not decoration: his Turing machine actually runs — the head moves, the tape rewrites itself, a counter ticks, the state table lights up in step. The diagram *is* the argument. Seventy minutes, and I watched like a student. By his own public account he spends up to three months on an episode, script first.
 
 I asked Muse to figure out how he does it — and, before inventing anything of its own, to *imitate*: take just the five minutes where a Turing machine defines P and NP, **[24:35–29:40](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s)**, and reproduce the craft. If that worked, we would generalize — to a Transformer explainer, say — and package the process so it could be reused.
 
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin:1.4em 0 0.4em;">
-  <iframe src="https://www.youtube-nocookie.com/embed/v-jgX-aQ7KM" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen title="Manshi — Possibly the deepest question humans have ever posed in mathematics and computer science"></iframe>
-</div>
-<p style="text-align:center;font-size:0.9em;color:#666;margin-top:0;">The original, embedded: Manshi's P vs NP video. The five minutes imitated in this post start at 24:35.</p>
 
 ## A short detour: what imitation learning is
 
