@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Muse Amazed Me Again — With One-Shot Imitation Learning"
+title: "Muse Amazed Me Again — One-Shot Imitation Learning, and Your Taste Is the Ceiling"
 description: "In reinforcement learning, one-shot imitation learning — mastering a new skill from a single demonstration — was a 2017 result about a robot stacking blocks. I gave Muse one video by a master explainer and the same instruction. It cloned his craft, rendered 8,235 frames of working simulations, and packaged the skill for reuse. The theory of imitation even predicts the ceiling — and it is the demonstrator."
 ---
 
@@ -11,6 +11,8 @@ For ten years, one of reinforcement learning's cleanest dreams has been a machin
 
 <video controls preload="metadata" playsinline style="width:100%;height:auto;display:block;margin:1.2em 0 0.4em;" src="/assets/videos/comparison-v1.mp4"></video>
 <p style="text-align:center;font-size:0.9em;color:#666;margin-top:0;">Play it right here: Manshi's original (top) vs Muse's imitation (bottom), aligned shot by shot.</p>
+
+*Imitation learning has a theorem: a copy's score contains the expert's own score as its first term. This post is that theorem, happening to a person.*
 
 ## The demonstration
 
@@ -23,7 +25,7 @@ I asked Muse to figure out how he does it — and, before inventing anything of 
 
 Imitation learning is learning from demonstration instead of from reward and trial-and-error: watch an expert, then do what the expert does. Its founding example is as basic as robotics gets — in 1989, Dean Pomerleau's ALVINN was a small neural network that learned to steer a car by watching a human drive. [2] Treat the expert's every situation-and-action as training data, and you get *behavioral cloning*.
 
-The field's most famous result explains why naive copying falls short. Ross and Bagnell summed it up in one inequality: [3] J(π̂) ≤ J(π*) + T²ε. Ignore the Greek letters — it says two simple things. One: **mistakes snowball**. Say a task takes T steps, and the copy gets each step right almost always, missing with some tiny rate ε. One wrong step still lands it in a situation the expert never showed it — and from there, the next mistake comes easier. So the total damage grows like T², the *square* of the task's length, not in a straight line. (Their fix, called DAgger, flattens the snowball back to a straight line. [4]) Two: look at the first term, J(π*) — that is the expert's own score, sitting right inside the copy's. The copy can approach the master, but **the master is the ceiling**. Imitation, the math says, cannot outrun its demonstration.
+The field's most famous result explains why naive copying falls short. Ross and Bagnell summed it up in one inequality: [3] J(π̂) ≤ J(π*) + T²ε. Ignore the Greek letters — it says two simple things. One: **mistakes snowball**. Say a task takes T steps, and the copy gets each step right almost always, missing with some tiny rate ε. One wrong step still lands it in a situation the expert never showed it — and from there, the next mistake comes easier. So the total damage grows like T², the *square* of the task's length, not in a straight line. (Their fix, called DAgger, flattens the snowball back to a straight line. [4]) Two: look at the first term, J(π*) — that is the expert's own score, sitting right inside the copy's. The copy can approach the master, but **the master is the ceiling**. Imitation, the math says, cannot outrun its demonstration. Keep that first term in mind — the experiment below ran straight into it.
 
 Then, in 2017, researchers at OpenAI and Berkeley (Duan, Andrychowicz, Sutskever, Abbeel, and colleagues) pushed the idea to its limit with a paper literally titled *One-Shot Imitation Learning*: [5] a robot trained so that a *single* demonstration of a new block-stacking task — one tower, shown once — is enough for it to perform new instances of that task. They closed with a hope: to build "a general system that can turn any demonstrations into robust policies." In 2017, that system was about stacking blocks in simulation.
 
@@ -35,7 +37,7 @@ Then it built its copy — not as slides, but by writing Python programs that re
 
 One demonstration, no second example, no retraining — and the copy landed. So we did the step the 2017 paper dreamed about: we turned the demonstration into a *policy* others can run. The result is the open-source skill pack linked above, in three layers — an engine that never changes, a small set of reusable simulation archetypes (a tape machine, weighted mixing, a branching tree, an accumulating scale), and a fresh thin episode layer per topic — under one strict rule: a shape joins the archetypes only after it has recurred in real episodes. Grown, not collected. A Transformer episode, when we make it, is mostly the weighted-mixing archetype fed by a tiny model's real attention weights — computed, not hand-placed.
 
-My honest rating of the copy: about **80%** of the original. The missing fifth is real — his props have true 3D weight, his pacing breathes — and, as the theorem would predict, the gap grows with the horizon: five minutes is not seventy.
+My honest rating of the copy: about **80%** of the original. The missing fifth is real (the detour above has a name for that gap: the first term) — his props have true 3D weight, his pacing breathes — and, as the theorem would predict, the gap grows with the horizon: five minutes is not seventy.
 
 ## The takeaway
 
@@ -43,7 +45,7 @@ First, name what happened. An agent performed one-shot imitation learning on a c
 
 Second, the theory tells you where the ceiling is, and it is J(π*): the demonstrator. Everything that makes the copy good was already in Manshi's video — which problem deserved seventy minutes, how to cut it into climbable stages, which metaphor carries which abstraction, when to withhold the definition until the demonstration has earned it. A demonstration transmits behavior: the *what* and the *how*. It never transmits the reward function — the *why*. An entire subfield, inverse reinforcement learning, exists precisely because the intention is not in the data.
 
-That is where the human value concentrates as generation gets cheap. Muse rendered eight thousand frames for almost nothing; the map those frames follow was drawn by a person, over months, out of taste. I have written before that taste is the new intelligence. Imitation learning's own mathematics now says the same thing in symbols: J(π̂) ≤ J(π*) + T²ε. The machine drew the frames. The human drew the map — and the map is the bound.
+That is where the human value concentrates as generation gets cheap. Muse rendered eight thousand frames for almost nothing; the map those frames follow was drawn by a person, over months, out of taste. I have written before that taste is the new intelligence. Imitation learning's own mathematics now says the same thing in symbols: J(π̂) ≤ J(π*) + T²ε. Read it plainly: J(π*) is not a metaphor for taste — in any real imitation it *is* taste, measured. The quality of the demonstration is the one input the imitator cannot improve. And the better imitators get, the tighter that bound bites: as copying approaches perfection, what decides the copy's quality is entirely what it was shown. By the human. By taste. The machine drew the frames. The human drew the map — and the map is the bound.
 
 ## Credit and sources
 
