@@ -6,7 +6,7 @@ description: "In reinforcement learning, one-shot imitation learning — masteri
 
 For ten years, one of reinforcement learning's cleanest dreams has been a machine that learns a new skill from a *single* demonstration. Last week I watched my agent do exactly that — not on a robot task, but on a master's craft: explaining hard ideas on video. One demonstration was all it got. One was enough.
 
-- **Watch the result (4½ minutes):** [the imitation video](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4) — Muse's recreation of the Turing-machine segment from [Manshi's original video](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s), playable right on its GitHub page
+- **Watch the result (4¾ minutes):** [the side-by-side comparison](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/comparison-v1.mp4) — Manshi's original segment on top, Muse's imitation below, aligned shot by shot, playable right on its GitHub page; the imitation on its own is [here](https://github.com/LiangGou/simulation-explainer-video/blob/main/examples/turing-machine-np/output/turing-segment-v1.mp4)
 - **Steal the skill pack:** [github.com/LiangGou/simulation-explainer-video](https://github.com/LiangGou/simulation-explainer-video) — the open-source project; drop it into your own agent (Muse, Claude Code, Codex) and make the same kind of video
 
 ## The demonstration
