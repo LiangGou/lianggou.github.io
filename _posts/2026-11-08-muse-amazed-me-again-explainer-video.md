@@ -11,17 +11,17 @@ For ten years, one of reinforcement learning's cleanest dreams has been a machin
 
 ## The demonstration
 
-The demonstration was a video by **Manshi （漫士沉思录）** — Lu Rui （卢睿）, a PhD student in Tsinghua's Yao Class — called [《这可能是人类提出最深刻的数学/计算机问题》](https://www.youtube.com/watch?v=v-jgX-aQ7KM) ("Possibly the deepest question humans have ever posed in mathematics and computer science"; also on [Bilibili](https://www.bilibili.com/video/BV1Ntxr6xE7Y)). In seventy minutes he explains P vs NP, and his animations are not decoration: his Turing machine actually runs — the head moves, the tape rewrites itself, a counter ticks, the state table lights up in step. The diagram *is* the argument. Seventy minutes, and I watched like a student. By his own public account he spends up to three months on an episode, script first.
+The demonstration was a video by **Manshi （漫士沉思录）** — Lu Rui （卢睿）, a PhD student in Tsinghua's Yao Class — called [《这可能是人类提出最深刻的数学/计算机问题》](https://www.youtube.com/watch?v=v-jgX-aQ7KM) ("Possibly the deepest question humans have ever posed in mathematics and computer science"; also on [Bilibili](https://www.bilibili.com/video/BV1Ntxr6xE7Y)). [1] In seventy minutes he explains P vs NP, and his animations are not decoration: his Turing machine actually runs — the head moves, the tape rewrites itself, a counter ticks, the state table lights up in step. The diagram *is* the argument. Seventy minutes, and I watched like a student. By his own public account he spends up to three months on an episode, script first.
 
 I asked Muse to figure out how he does it — and, before inventing anything of its own, to *imitate*: take just the five minutes where a Turing machine defines P and NP, **[24:35–29:40](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s)**, and reproduce the craft. If that worked, we would generalize — to a Transformer explainer, say — and package the process so it could be reused.
 
 ## A short detour: what imitation learning is
 
-Imitation learning is learning from demonstration instead of from reward and trial-and-error: watch an expert, then do what the expert does. Its founding example is as basic as robotics gets — in 1989, Dean Pomerleau's ALVINN was a small neural network that learned to steer a car by watching a human drive. Treat the expert's every situation-and-action as training data, and you get *behavioral cloning*.
+Imitation learning is learning from demonstration instead of from reward and trial-and-error: watch an expert, then do what the expert does. Its founding example is as basic as robotics gets — in 1989, Dean Pomerleau's ALVINN was a small neural network that learned to steer a car by watching a human drive. [2] Treat the expert's every situation-and-action as training data, and you get *behavioral cloning*.
 
-The field's most famous result explains why naive copying falls short. Ross and Bagnell summed it up in one inequality: J(π̂) ≤ J(π*) + T²ε. Ignore the Greek letters — it says two simple things. One: **mistakes snowball**. Say a task takes T steps, and the copy gets each step right almost always, missing with some tiny rate ε. One wrong step still lands it in a situation the expert never showed it — and from there, the next mistake comes easier. So the total damage grows like T², the *square* of the task's length, not in a straight line. (Their fix, called DAgger, flattens the snowball back to a straight line.) Two: look at the first term, J(π*) — that is the expert's own score, sitting right inside the copy's. The copy can approach the master, but **the master is the ceiling**. Imitation, the math says, cannot outrun its demonstration.
+The field's most famous result explains why naive copying falls short. Ross and Bagnell summed it up in one inequality: [3] J(π̂) ≤ J(π*) + T²ε. Ignore the Greek letters — it says two simple things. One: **mistakes snowball**. Say a task takes T steps, and the copy gets each step right almost always, missing with some tiny rate ε. One wrong step still lands it in a situation the expert never showed it — and from there, the next mistake comes easier. So the total damage grows like T², the *square* of the task's length, not in a straight line. (Their fix, called DAgger, flattens the snowball back to a straight line. [4]) Two: look at the first term, J(π*) — that is the expert's own score, sitting right inside the copy's. The copy can approach the master, but **the master is the ceiling**. Imitation, the math says, cannot outrun its demonstration.
 
-Then, in 2017, researchers at OpenAI and Berkeley (Duan, Andrychowicz, Sutskever, Abbeel, and colleagues) pushed the idea to its limit with a paper literally titled *One-Shot Imitation Learning*: a robot trained so that a *single* demonstration of a new block-stacking task — one tower, shown once — is enough for it to perform new instances of that task. They closed with a hope: to build "a general system that can turn any demonstrations into robust policies." In 2017, that system was about stacking blocks in simulation.
+Then, in 2017, researchers at OpenAI and Berkeley (Duan, Andrychowicz, Sutskever, Abbeel, and colleagues) pushed the idea to its limit with a paper literally titled *One-Shot Imitation Learning*: [5] a robot trained so that a *single* demonstration of a new block-stacking task — one tower, shown once — is enough for it to perform new instances of that task. They closed with a hope: to build "a general system that can turn any demonstrations into robust policies." In 2017, that system was about stacking blocks in simulation.
 
 ## One demonstration, one copy
 
@@ -43,6 +43,18 @@ That is where the human value concentrates as generation gets cheap. Muse render
 
 ## Credit and sources
 
-Everything imitated here belongs to **Lu Rui （卢睿） and his channel 漫士沉思录 (Manshi)** — go watch the original, it is better than the copy: [the video on YouTube](https://www.youtube.com/watch?v=v-jgX-aQ7KM) · [on Bilibili](https://www.bilibili.com/video/BV1Ntxr6xE7Y) · [the imitated segment, 24:35–29:40](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s). The imitation-learning references: Pomerleau, ALVINN (1989); Ross & Bagnell, *Efficient Reductions for Imitation Learning* (2010) and Ross, Gordon & Bagnell, *DAgger* (2011); Duan et al., [*One-Shot Imitation Learning*](https://arxiv.org/abs/1703.07326), NeurIPS 2017. Thank you, Manshi — this student learned a lot.
+Everything imitated here belongs to **Lu Rui （卢睿） and his channel 漫士沉思录 (Manshi)** — go watch the original, it is better than the copy: [the video on YouTube](https://www.youtube.com/watch?v=v-jgX-aQ7KM) · [on Bilibili](https://www.bilibili.com/video/BV1Ntxr6xE7Y) · [the imitated segment, 24:35–29:40](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s). Thank you, Manshi — this student learned a lot.
+
+## References
+
+[1] Lu Rui （卢睿） / 漫士沉思录 (Manshi). (2026). 《这可能是人类提出最深刻的数学/计算机问题》 [Possibly the deepest question humans have ever posed in mathematics and computer science]. Video, 70 min, finale of the series 图灵的沉思：理论计算机. [YouTube](https://www.youtube.com/watch?v=v-jgX-aQ7KM). [Bilibili](https://www.bilibili.com/video/BV1Ntxr6xE7Y).
+
+[2] Pomerleau, D. (1989). ALVINN: An Autonomous Land Vehicle in a Neural Network. *Advances in Neural Information Processing Systems 1*.
+
+[3] Ross, S., & Bagnell, D. (2010). Efficient Reductions for Imitation Learning. *Proceedings of AISTATS 2010*.
+
+[4] Ross, S., Gordon, G. J., & Bagnell, D. (2011). A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning. *Proceedings of AISTATS 2011*. arXiv:1011.0686.
+
+[5] Duan, Y., Andrychowicz, M., Stadie, B., Ho, J., Schneider, J., Sutskever, I., Abbeel, P., & Zaremba, W. (2017). One-Shot Imitation Learning. *Advances in Neural Information Processing Systems 30*. [arXiv:1703.07326](https://arxiv.org/abs/1703.07326).
 
 P.S. The ideas and the story are mine; the craft is Muse's.
