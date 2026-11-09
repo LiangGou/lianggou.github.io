@@ -15,6 +15,11 @@ The demonstration was a video by **Manshi （漫士沉思录）** — Lu Rui （
 
 I asked Muse to figure out how he does it — and, before inventing anything of its own, to *imitate*: take just the five minutes where a Turing machine defines P and NP, **[24:35–29:40](https://www.youtube.com/watch?v=v-jgX-aQ7KM&t=1455s)**, and reproduce the craft. If that worked, we would generalize — to a Transformer explainer, say — and package the process so it could be reused.
 
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin:1.4em 0 0.4em;">
+  <iframe src="https://www.youtube-nocookie.com/embed/v-jgX-aQ7KM" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen title="Manshi — Possibly the deepest question humans have ever posed in mathematics and computer science"></iframe>
+</div>
+<p style="text-align:center;font-size:0.9em;color:#666;margin-top:0;">The original, embedded: Manshi's P vs NP video. The five minutes imitated in this post start at 24:35.</p>
+
 ## A short detour: what imitation learning is
 
 Imitation learning is learning from demonstration instead of from reward and trial-and-error: watch an expert, then do what the expert does. Its founding example is as basic as robotics gets — in 1989, Dean Pomerleau's ALVINN was a small neural network that learned to steer a car by watching a human drive. [2] Treat the expert's every situation-and-action as training data, and you get *behavioral cloning*.
