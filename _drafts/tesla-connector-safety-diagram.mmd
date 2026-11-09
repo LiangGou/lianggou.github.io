@@ -1,0 +1,36 @@
+%% Tesla connector — architecture and safety shape (C4-style)
+%% Actors (owner, Muse agent) and external systems (Tesla Fleet API, the car)
+%% sit outside the dashed boundary. Everything inside runs on the owner's machine.
+%% The confirmation gate is drawn explicitly on the navigation flow.
+
+flowchart LR
+    Owner(["Owner — voice, in the car"])
+    Agent["Muse agent"]
+
+    subgraph Host["Owner's machine — Muse host"]
+        CLI["tesla CLI — status / location / battery / nav-prepare / nav-send"]
+        Broker["Broker — owns the Tesla OAuth and token chain;<br/>builds every request; duplicate-send guard"]
+        Gate{{"Confirmation gate — exact destination text<br/>shown to the owner; one-time token per send"}}
+        Store[("Secret store, mode 600 — OAuth tokens,<br/>Fleet signing key (private half never leaves)")]
+        Proxy["tesla-http-proxy — Tesla's official proxy,<br/>localhost only; signs vehicle commands"]
+    end
+
+    Fleet["Tesla Fleet API — external"]
+    Car["The car — external"]
+
+    Owner -->|"asks by voice: where is my car?<br/>send this destination"| Agent
+    Agent -->|"read commands"| CLI
+    CLI --> Broker
+    Broker -->|"tokens read and refreshed locally"| Store
+    Broker -->|"read path: vehicle data request"| Fleet
+    Fleet -->|"location, battery, state"| Broker
+
+    Broker -->|"nav-prepare: exact destination text"| Gate
+    Gate -->|"owner confirms the exact text;<br/>one-time token issued"| Broker
+    Broker -->|"nav-send (token consumed once)"| Proxy
+    Proxy -->|"signed command"| Fleet
+    Fleet -->|"wake / navigation only"| Car
+
+    classDef gate fill:#fde68a,stroke:#b45309,stroke-width:2px;
+    class Gate gate;
+    style Host fill:#f8fafc,stroke:#64748b,stroke-width:1.5px,stroke-dasharray:6 4;
